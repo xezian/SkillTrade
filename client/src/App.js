@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = { 
+    authors: [] 
+  }
+
+  componentDidMount() {
+    fetch('/users')
+      .then(res => res.json())
+      .then(authors => this.setState({
+        authors: authors
+      }))
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Skill Share App</h1>
+          <h2>Development Team</h2>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.state.authors.map(author => 
+          <h4 key={author.id}>{author.name}</h4>
+        )}
       </div>
     );
   }
