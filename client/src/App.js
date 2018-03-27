@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  state = { 
-    authors: [] 
+  state = {
+    authors: [],
   }
 
   componentDidMount() {
     fetch('/users')
       .then(res => res.json())
       .then(authors => this.setState({
-        authors: authors
+        authors: authors,
       }))
   }
 
@@ -21,9 +21,8 @@ class App extends Component {
           <h1 className="App-title">Skill Share App</h1>
           <h2>Development Team</h2>
         </header>
-        {this.state.authors.map(author => 
-          <h4 key={author.id}>{author.name}</h4>
-        )}
+        {this.state.authors.map(author =>
+          <h4 key={author.id}>{author.name}</h4>)}
       </div>
     );
   }
