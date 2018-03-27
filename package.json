@@ -1,39 +1,21 @@
 {
-  "name": "skillshare",
-  "version": "0.0.0",
+  "name": "skillsharer",
+  "version": "1.0.0",
   "main": "index.js",
-  "private": true,
-  "engines": {
-    "node": "8.9.4",
-    "npm" : "5.7.1",
-    "yarn": "1.5.1"
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^3.5.1"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn build",
-    "client": "cd client && yarn start",
-    "build": "concurrently --kill-others-on-fail \"yarn start\" \"yarn client\"",
-    "test": "jest",
+    "install": "(cd client && yarn) && (cd server && yarn)",
+    "start": "concurrently \"cd client && yarn start\" \"cd server && yarn start\"",
     "lint": "eslint ."
   },
-  "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "concurrently": "^3.5.1",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
-  },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jest": "^21.15.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3",
-    "supertest": "^3.0.0"
+    "eslint-plugin-react": "^7.7.0"
   }
 }

@@ -1,0 +1,21 @@
+module.exports = {
+  "extends": "airbnb",
+  "rules": {
+		"no-tabs": 0,
+		"linebreak-style": 0,
+		"react/prop-types": [0],
+		"indent": ["error", 2],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "no-unused-vars": [ "error", { "argsIgnorePattern": "next" } ],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+  }
+};
+
+
+  
+  
+    
+    
+    
