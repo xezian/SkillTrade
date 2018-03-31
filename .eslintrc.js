@@ -5,7 +5,7 @@ module.exports = {
 		"linebreak-style": 0,
 		"react/prop-types": [0],
 		"indent": ["error", 2],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "no-unused-vars": [ "error", { "argsIgnorePattern": "next" } ],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
