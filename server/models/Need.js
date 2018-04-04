@@ -7,7 +7,6 @@ const Need = ko.Model('Need', {
   password: ko.String,
   email: ko.String,
   //reference to Need and Skill?
-
  });
 
-module.exports = Need
+module.exports = Need;

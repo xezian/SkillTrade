@@ -1,6 +1,6 @@
 const ko = require('nekodb');
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/skillshare";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/skillShare";
  
 ko.connect({
   client: 'mongodb',
