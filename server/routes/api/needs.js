@@ -1,14 +1,14 @@
-const router = require("express").Router();
-const needsController = require("../../controllers/needsController");
+const router = require('express').Router();
+const needsController = require('../../controllers/needsController');
 
 // Matches with "/api/needs"
-router.route("/")
+router.route('/needs/')
   .get(needsController.findAll)
   .post(needsController.create);
 
 // Matches with "/api/needs/:id"
 router
-  .route("/:id")
+  .route('/needs/:id')
   .get(needsController.findById)
   .put(needsController.update)
   .delete(needsController.remove);
