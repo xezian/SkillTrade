@@ -2,7 +2,7 @@ const ko = require('nekodb')
 
 //be sure to co connect first or you'll get an error
 
-const Need = ko.models.Need.create({
+const Need = ko.Model('Need', {
   username: ko.String[50],
   password: ko.String[50],
   email: ko.String[50],
@@ -10,4 +10,4 @@ const Need = ko.models.Need.create({
 
  });
 
-module.exports = Need
+module.exports = Need;

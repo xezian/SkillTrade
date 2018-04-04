@@ -7,5 +7,4 @@ const User = ko.Model('User', {
 
 })
 
-
 module.exports = User
