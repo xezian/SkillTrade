@@ -5,7 +5,7 @@ const ko = require('nekodb')
 const Need = ko.models.Need.create({
   username: ko.String[50],
   password: ko.String[50],
-  email: ko.String[50].
+  email: ko.String[50],
   //reference to Need and Skill?
 
  });
