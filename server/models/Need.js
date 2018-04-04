@@ -1,17 +1,13 @@
-var mongoose = require("mongoose");
+const ko = require('nekodb')
 
-// Save a reference to the Schema constructor
-var Schema = mongoose.Schema;
+//be sure to co connect first or you'll get an error
 
-// Using the Schema constructor, create a new NoteSchema object
-// This is similar to a Sequelize model
-var NeedSchema = new Schema({
-  description: String,
-  completedByDate: Date,
-});
+const Need = ko.models.Need.create({
+  username: ko.String[50],
+  password: ko.String[50],
+  email: ko.String[50].
+  //reference to Need and Skill?
 
-// This creates our model from the above schema, using mongoose's model method
-var Need = mongoose.model("Need", UserSchema);
+ });
 
-// Export the Need model
-module.exports = Need;
+module.exports = Need
