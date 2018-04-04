@@ -9,7 +9,8 @@ module.exports = {
     "quotes": ["error", "single"],
     "no-unused-vars": [ "error", { "argsIgnorePattern": "next" } ],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "object-shorthand": ["error", "always", { "ignoreConstructors": true }],
   }
 };
 
