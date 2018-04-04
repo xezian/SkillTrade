@@ -5,9 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "concurrently": "^3.5.1",
-    "nekodb": "^2.1.0"
+    "nekodb": "^2.1.0",
     "react-materialize": "^2.1.4"
-
   },
   "scripts": {
     "install": "(cd client && yarn) && (cd server && yarn)",
