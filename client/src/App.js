@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Homepage from './pages/Homepage';
+import NoMatch from './pages/NoMatch';
+import Banner from './components/Banner';
 
-class App extends Component {
-  state = {
-    authors: [],
-  }
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(authors => this.setState({
-        authors: authors,
-      }))
-  }
-
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Skill Share App</h1>
-          <h2>Development Team</h2>
-        </header>
-        {this.state.authors.map(author =>
-          <h4 key={author.id}>{author.name}</h4>)}
-      </div>
+      <Router>
+        <div>
+          <Banner />
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
