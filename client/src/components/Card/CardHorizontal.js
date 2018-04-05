@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from 'react-materialize';
+import { Card } from 'react-materialize';
 
-const CardHorizontal = () => (
+export const CardHorizontal = () => (
   <Col m={7} s={12}>
 	  <Card 
 	  	horizontal header={<CardTitle image="#"></CardTitle>} 
@@ -11,5 +11,3 @@ const CardHorizontal = () => (
 	  </Card>
 	</Col>
 );
-
-export default CardHorizontal;

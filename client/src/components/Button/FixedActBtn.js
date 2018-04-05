@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-materialize';
 
-const FixedActBtn = () => (
+export const FixedActBtn = () => (
   <Button floating fab='vertical' faicon='fa fa-plus' className='red' large style={{bottom: '45px', right: '24px'}}>
 	  <Button floating icon='insert_chart' className='red'/>
 	  <Button floating icon='format_quote' className='yellow darken-1'/>
@@ -10,4 +10,4 @@ const FixedActBtn = () => (
 	</Button>
 );
 
-export default FixedActBtn;
+

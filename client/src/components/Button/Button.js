@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Icon } from 'react-materialize';
 
-const Btn = () => (
+export const Btn = () => (
   <div>
     <Button waves='light'>button</Button>
     <Button waves='light'>button<Icon left>cloud</Icon></Button>
@@ -9,4 +9,3 @@ const Btn = () => (
   </div>
 );
 
-export default Btn;

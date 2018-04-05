@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from 'react-materialize';
+import { Card } from 'react-materialize';
 
-const ImageCard = () => (
+export const ImageCard = () => (
   <Card 
   	className='small'
   	header={<CardTitle image='img/sample-1.jpg'>Card Title</CardTitle>}
@@ -9,5 +9,3 @@ const ImageCard = () => (
   	Simple card with image
 	</Card>
 );
-
-export default ImageCard;

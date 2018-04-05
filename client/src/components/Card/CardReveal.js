@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardTitle } from 'react-materialize';
 
-const CardReveal = () => (
+export const CardReveal = () => (
   <Card 
   	header={<CardTitle reveal image={"#"} waves='light' />}
     title="Card Title"
@@ -9,5 +9,3 @@ const CardReveal = () => (
     <p><a href="#">Link</a></p>
 	</Card>
 );
-
-export default CardReveal;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from 'react-materialize';
+import { Card } from 'react-materialize';
 
-const CardBasic = () => (
+export const CardBasic = () => (
   <Col m={6} s={12}>
     <Card className='blue-grey darken-1' 
     			textClassName='white-text' 
@@ -11,5 +11,3 @@ const CardBasic = () => (
     </Card>
 	</Col>
 );
-
-export default CardBasic;
