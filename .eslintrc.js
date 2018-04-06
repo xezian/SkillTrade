@@ -13,10 +13,3 @@ module.exports = {
     "object-shorthand": ["error", "always", { "ignoreConstructors": true }],
   }
 };
-
-
-  
-  
-    
-    
-    
