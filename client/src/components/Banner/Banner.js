@@ -1,9 +1,14 @@
 import React from 'react';
+import { Navbar, NavItem, Icon, Row, Col } from 'react-materialize';
 import './Banner.css';
 
 export const Banner = () => (
-  <Navbar brand='logo' right>
-    <NavItem href='Login'>Getting started</NavItem>
-    <NavItem href='Register'>Components</NavItem>
-  </Navbar>
-)
+	<Row>	
+		<Col s={12}>
+		  <Navbar brand={<Icon>menu</Icon>} right>
+		    <NavItem href='Login'>Login</NavItem>
+		    <NavItem href='Register'>Register</NavItem>
+		  </Navbar>
+		</Col>
+	</Row>
+);
