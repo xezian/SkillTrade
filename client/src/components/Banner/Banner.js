@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, NavItem, Icon, Row, Col } from 'react-materialize';
 import './Banner.css';
 
-export const Banner = () => (
+const Banner = () => (
 	<Row>
 		<Col s={12}>
 		  <Navbar brand={<Icon>menu</Icon>} right>
@@ -12,3 +12,5 @@ export const Banner = () => (
 		</Col>
 	</Row>
 );
+
+export default Banner;
