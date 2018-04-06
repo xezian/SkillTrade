@@ -1,11 +1,11 @@
 import React from 'react';
-import HomeForm from '../../components/Form';
+import { HomeForm } from '../../components/Form';
 
-const Homepage = () => (
+const HomePage = () => (
   <div>
     <h1 className="center-align">Skill Share</h1>
     <HomeForm />
   </div>
 );
 
-export default Homepage;
+export default HomePage;
