@@ -4,24 +4,28 @@ const db = require('../models');
 // export functions to handle db interaction for needs
 module.exports = {
   findAll: (req, res) => {
+    console.log('needs findAll!');
     db.Need
       .find({})
       .then(instances => res.json(instances))
       .catch(err => res.status(422).json(err));
   },
   findById: (req, res) => {
+    console.log('needs findById!');
     db.Need
       .findById(req.params.id)
       .then(instance => res.json(instance))
       .catch(err => res.status(422).json(err));
   },
   create: (req, res) => {
+    console.log('needs create!');
     db.Need
       .create(req.body).save()
       .then(instance => res.json(instance))
       .catch(err => res.status(422).json(err));
   },
   update: (req, res) => {
+    console.log('needs update!');
     db.Need
       .findById(req.params.id)
       .then((instance) => {
@@ -31,6 +35,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: (req, res) => {
+    console.log('needs remove!');
     db.Need
       .deleteById(req.param.id)
       .then(delCount => res.send(`${delCount} records deleted`))
