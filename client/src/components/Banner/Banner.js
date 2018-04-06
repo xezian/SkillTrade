@@ -3,7 +3,7 @@ import { Navbar, NavItem, Icon, Row, Col } from 'react-materialize';
 import './Banner.css';
 
 export const Banner = () => (
-	<Row>	
+	<Row>
 		<Col s={12}>
 		  <Navbar brand={<Icon>menu</Icon>} right>
 		    <NavItem href='Login'>Login</NavItem>
