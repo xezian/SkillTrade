@@ -1,2 +1,1 @@
-export { default } from './HomeForm';
-
+export { default } from './Form';

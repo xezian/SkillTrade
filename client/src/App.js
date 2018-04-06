@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Homepage from './pages/Homepage';
 import NoMatch from './pages/NoMatch';
 import { Banner } from './components/Banner';
 
