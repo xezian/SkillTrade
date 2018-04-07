@@ -76,3 +76,5 @@ skillSeeds.forEach((oneSkill) => {
     .then(instance => console.log(`skill seed: ${instance.name}`))
     .catch(err => console.error(err));
 });
+
+process.exit();
