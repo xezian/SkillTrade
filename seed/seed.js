@@ -44,7 +44,7 @@ const skillSeeds = [
     description: 'I have great skill with camera and editing.',
   },
   {
-    name: 'Install Linux on my Windows Machine',
+    name: 'Install Linux on your Windows Machine',
     category: 'Computer',
     description: 'I\'ll get Linux running for you, so you can run from Windows.',
   },
