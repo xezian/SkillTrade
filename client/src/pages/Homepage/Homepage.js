@@ -3,7 +3,7 @@ import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-mater
 import API from '../../utils/API';
 
 class HomePage extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       option: '1',
@@ -33,46 +33,49 @@ class HomePage extends React.Component {
     event.preventDefault();
 
     API.getResults(this.state.option, this.state.category)
-      .then(res => {
-      this.setState({
-        option: '1',
-        category: '',
-        searchResults: [],
-      });
-    })
-    .catch(err => console.log(err));
+      .then((res) => {
+        this.setState({
+          option: '1',
+          category: '',
+          searchResults: res.data,
+        });
+        console.log(res);
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
-		  <div>
-		    <h1 className="center-align">Skill Share</h1>
-		    <Row>
-			    <Col s={2} />
-			    <Input 
-			    	s={3} 
-			    	type="select" 
-			    	label="Options" 
-			    	defaultValue="1"
-			    	value={this.state.option}
+      <div>
+        <h1 className="center-align">Skill Share</h1>
+        <Row>
+          <Col s={2} />
+          <Input
+            s={3}
+            type="select"
+            label="Options"
+            defaultValue="1"
+            value={this.state.option}
             onChange={this.handleOptionChange}
-           >
-			      <option value="1">I can ...</option>
-			      <option value="2">I need ...</option>
-			    </Input>
-			    <Input 
-            placeholder="Search..." 
-            s={4} 
+          >
+            <option value="1">I can ...</option>
+            <option value="2">I need ...</option>
+          </Input>
+          <Input
+            placeholder="Search..."
+            s={4}
             label="What's up?"
             value={this.state.category}
-            onChange={this.handleInputChange} 
+            onChange={this.handleInputChange}
           />
-			    <Button 
-			    	waves="light"
-			    	onClick={this.handleSubmit}
-			    >Search</Button>
-			  </Row>
-			  <Row>
+          <Button
+            waves="light"
+            onClick={this.handleSubmit}
+          >
+            Search
+          </Button>
+        </Row>
+        <Row>
           <Col s={2} />
           <Col s={8}>
             <h4 className="center-align">Search Results</h4>
@@ -89,11 +92,11 @@ class HomePage extends React.Component {
               <p>No results listed...</p>
             )}
           </Col>
-          <Col s={2}/>
+          <Col s={2} />
         </Row>
-		  </div>
-		);
-	}
+      </div>
+    );
+  }
 }
 
 export default HomePage;
