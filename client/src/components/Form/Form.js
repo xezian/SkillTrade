@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, Row } from 'react-materialize';
 import './Form.css';
 
-const Form = () => (
+export const Form = () => (
   <Row>
     <Input placeholder="Placeholder" s={6} label="First Name" />
     <Input s={6} label="Last Name" />
@@ -10,4 +10,3 @@ const Form = () => (
   </Row>
 );
 
-export default Form;
