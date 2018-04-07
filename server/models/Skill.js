@@ -1,14 +1,14 @@
-const ko = require("nekodb")
-//be sure to co connect first or you'll get an error
+const ko = require('nekodb');
 
-var Skill = ko.Model('Skill', {
+const Skill = ko.Model('Skill', {
   name: ko.String,
+  category: ko.String,
   description: ko.String,
-  $$indexes: {
-    name: {
-      unique: true
-    }
-  }
- });
+  // $$indexes: {
+  //   name: {
+  //     unique: true,
+  //   },
+  // },
+});
 
-module.exports = Skill
+module.exports = Skill;

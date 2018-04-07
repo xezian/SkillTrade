@@ -10,10 +10,10 @@ module.exports = {
       .then(instances => res.json(instances))
       .catch(err => res.status(422).json(err));
   },
-  findById: (req, res) => {
-    console.log('skills findById!');
+  findByCategory: (req, res) => {
+    console.log('skills findByCategory!');
     db.Skill
-      .findById(req.params.id)
+      .find({ category: req.params.category })
       .then(instance => res.json(instance))
       .catch(err => res.status(422).json(err));
   },
