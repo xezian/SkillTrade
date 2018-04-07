@@ -7,6 +7,7 @@
     "concurrently": "^3.5.1",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "nekodb": "^2.2.0",
     "react-materialize": "^2.1.4"
   },
   "scripts": {
@@ -15,7 +16,7 @@
     "lint": "eslint .",
     "test": "mocha --timeout 10000",
     "seed": "node ./seed/seed",
-    "heroku-postbuild": "cd client && yarn install && yarn run build"
+    "heroku-postbuild": "yarn install && cd client && yarn run build"
   },
   "devDependencies": {
     "chai": "^4.1.2",

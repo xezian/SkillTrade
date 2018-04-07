@@ -65,16 +65,18 @@ const skillSeeds = [
   },
 ];
 
-needSeeds.forEach((oneNeed) => {
+const needsPromises = needSeeds.map(oneNeed => (
   db.Need.create(oneNeed).save()
     .then(instance => console.log(`need seed: ${instance.name}`))
-    .catch(err => console.error(err));
-});
+    .catch(err => console.error(err))
+));
 
-skillSeeds.forEach((oneSkill) => {
+const skillsPromises = skillSeeds.map(oneSkill => (
   db.Skill.create(oneSkill).save()
     .then(instance => console.log(`skill seed: ${instance.name}`))
-    .catch(err => console.error(err));
-});
+    .catch(err => console.error(err))
+));
 
-process.exit();
+Promise.all([...needsPromises, ...skillsPromises]).then(() => {
+  process.exit();
+});
