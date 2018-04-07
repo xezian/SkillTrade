@@ -1,12 +1,14 @@
 const ko = require('nekodb');
 
-// be sure to co connect first or you'll get an error
-
 const Need = ko.Model('Need', {
-  username: ko.String,
-  password: ko.String,
-  email: ko.String,
-  // reference to Need and Skill?
+  name: ko.String,
+  category: ko.String,
+  description: ko.String,
+  // $$indexes: {
+  //   id: {
+  //     unique: true,
+  //   },
+  // },
 });
 
 module.exports = Need;

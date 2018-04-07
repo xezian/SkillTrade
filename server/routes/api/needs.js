@@ -4,11 +4,8 @@ const needsController = require('../../controllers/needsController');
 // Matches with "/api/needs"
 router
   .get('/', needsController.findAll)
-  .post('/', needsController.create);
-
-// Matches with "/api/needs/:id"
-router
-  .get('/:id', needsController.findById)
+  .post('/', needsController.create)
+  .get('/:category', needsController.findByCategory)
   .put('/:id', needsController.update)
   .delete('/:id', needsController.remove);
 

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   getResults: (option, category) => {
@@ -8,5 +8,6 @@ export default {
     if (option === '2') {
       return axios.get(`/api/needs/${category}`);
     }
-  }
-}
+    return 'it is what it is';
+  },
+};
