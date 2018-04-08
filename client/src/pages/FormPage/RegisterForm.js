@@ -54,10 +54,21 @@ export class RegisterForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(`username: ${this.state.username}, password: ${this.state.password}`);
     event.preventDefault();
 
-    API.getVerification(this.state.username, this.state.password)
+    const newUser = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password,
+      confirm: this.state.confirm,
+      description: this.state.description,
+    };
+
+    console.log(newUser);
+
+    API.createUser(newUser)
       .then((res) => {
         this.setState({
           firstName: '',
