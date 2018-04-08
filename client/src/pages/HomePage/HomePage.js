@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
 import API from '../../utils/API';
 
-class HomePage extends React.Component {
+export class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,5 +98,3 @@ class HomePage extends React.Component {
     );
   }
 }
-
-export default HomePage;
