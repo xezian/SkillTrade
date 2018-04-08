@@ -18,6 +18,7 @@ app.use('/', index);
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
+    console.log('hello line 21 here app.js');
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
