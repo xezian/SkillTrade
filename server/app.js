@@ -10,7 +10,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static('client/build'));
+app.use(express.static('../client/build'));
 app.use(require('./routes'));
 
 // for production only! where we serve the index.html through which our React code is delivered
