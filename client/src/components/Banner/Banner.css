@@ -1,0 +1,11 @@
+#banner {
+	padding: 0;
+}
+
+#navbar {
+	padding: 0 50px;
+}
+
+ul>div {
+	display: inline;
+}
