@@ -35,9 +35,6 @@ function normalizePort(val) {
 const port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
-// Attempt to set view engine for heroku.
-
-app.set('view engine', 'html');
 /**
  * Event listener for HTTP server "error" event.
  */
