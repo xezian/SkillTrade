@@ -12,18 +12,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static('client/build'));
 app.use('/', index);
 
-// for production only! then the client/build directory has it all.
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-} else {
-  app.use(express.static(path.join(__dirname, 'public')));
-}
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
