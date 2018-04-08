@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('client/build'));
 app.use('/', index);
-
+console.log('Hi Jason: ' + process.env.NODE_ENV);
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
