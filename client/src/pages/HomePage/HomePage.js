@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
+import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
 import API from '../../utils/API';
 
 export class HomePage extends React.Component {
@@ -80,14 +80,20 @@ export class HomePage extends React.Component {
           <Col s={8}>
             <h4 className="center-align">Search Results</h4>
             {this.state.searchResults ? (
-              <Collection>
+              <div>
                 {this.state.searchResults.map(result => (
-                  <CollectionItem key={result._id}>
-                    <h4>{result.name}</h4>
-                    <p>{result.description}</p>
-                  </CollectionItem>
+                  <Card
+                    header={<CardTitle reveal image={result.img} waves="light" />}
+                    title={result.category}
+                    reveal={result.description}
+                    style={{
+                      width: '31%', float: 'left', marginLeft: 'calc(7% / 6)', marginRight: 'calc(7% / 6)',
+                    }}
+                  >
+                    <p>{result.name}</p>
+                  </Card>
                 ))}
-              </Collection>
+              </div>
             ) : (
               <p>No results listed...</p>
             )}
