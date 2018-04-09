@@ -12,7 +12,6 @@ export class RegisterForm extends React.Component {
       username: '',
       password: '',
       confirm: '',
-      description: '',
     };
 
     this.handleFirstChange = this.handleFirstChange.bind(this);
@@ -21,7 +20,6 @@ export class RegisterForm extends React.Component {
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handlePassChange = this.handlePassChange.bind(this);
     this.handleConfirmChange = this.handleConfirmChange.bind(this);
-    this.handleDescChange = this.handleDescChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -49,10 +47,6 @@ export class RegisterForm extends React.Component {
     this.setState({ confirm: event.target.value });
   }
 
-  handleDescChange(event) {
-    this.setState({ description: event.target.value });
-  }
-
   handleSubmit(event) {
     event.preventDefault();
 
@@ -63,7 +57,6 @@ export class RegisterForm extends React.Component {
       username: this.state.username,
       password: this.state.password,
       confirm: this.state.confirm,
-      description: this.state.description,
     };
 
     console.log(newUser);
@@ -77,7 +70,6 @@ export class RegisterForm extends React.Component {
           username: '',
           password: '',
           confirm: '',
-          description: '',
         });
         console.log(res);
       })
@@ -122,12 +114,6 @@ export class RegisterForm extends React.Component {
           s={6}
           value={this.state.confirm}
           onChange={this.handleConfirmChange}
-        />
-        <Input
-          label="Describe your skill/need"
-          s={12}
-          value={this.state.description}
-          onChange={this.handleDescChange}
         />
         <Button
           disabled={!this.state.email || !this.state.username ||
