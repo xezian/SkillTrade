@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavItem, Icon, Row, Col } from 'react-materialize';
-import { LoginForm, RegisterForm } from '../Form';
+import { LoginForm, RegisterForm } from '../../pages/FormPage';
 import ModalBox from '../Modal';
 import './Banner.css';
 
