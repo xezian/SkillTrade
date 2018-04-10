@@ -12,7 +12,7 @@ const Banner = () => (
       <Side />
     </Col>
     <Col s={7} />
-    <Col s={1} className="link-div">
+    <Col s={1} className="link-div right-align">
       <ModalLogin
         header="User Login"
         trigger={<a href="Login">Login</a>}
