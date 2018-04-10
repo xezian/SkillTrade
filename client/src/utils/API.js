@@ -4,10 +4,10 @@ export default {
   // Based on the search input, results of skills or needs will be displayed
   getResults: (option, category) => {
     if (option === '1') {
-      return axios.get(`/api/skills/${category}`);
+      return axios.get(`/api/needs/${category}`);
     }
     if (option === '2') {
-      return axios.get(`/api/needs/${category}`);
+      return axios.get(`/api/skills/${category}`);
     }
     return 'it is what it is';
   },
