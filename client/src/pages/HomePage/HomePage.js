@@ -69,25 +69,31 @@ export class HomePage extends React.Component {
             onChange={this.handleInputChange}
           />
           <Button
+            floating
+            large
+            className="red"
             waves="light"
+            icon="search"
             onClick={this.handleSubmit}
-          >
-            Search
-          </Button>
+            disabled={!this.state.category}
+          />
         </Row>
         <Row>
           <Col s={2} />
           <Col s={8}>
-            <h4 className="center-align">Search Results</h4>
-            {this.state.searchResults ? (
+            {this.state.searchResults.length > 0 ? (
               <div>
+                <h4 className="center-align">Search Results</h4>
                 {this.state.searchResults.map(result => (
                   <Card
                     header={<CardTitle reveal image={result.img} waves="light" />}
                     title={result.category}
                     reveal={result.description}
                     style={{
-                      width: '31%', float: 'left', marginLeft: 'calc(7% / 6)', marginRight: 'calc(7% / 6)',
+                      width: '31%',
+                      float: 'left',
+                      marginLeft: 'calc(7% / 6)',
+                      marginRight: 'calc(7% / 6)',
                     }}
                   >
                     <p>{result.name}</p>
@@ -95,7 +101,9 @@ export class HomePage extends React.Component {
                 ))}
               </div>
             ) : (
-              <p>No results listed...</p>
+              <p>
+                No posting is available at this moment...
+              </p>
             )}
           </Col>
           <Col s={2} />
