@@ -56,7 +56,6 @@ export class RegisterForm extends React.Component {
       email: this.state.email,
       username: this.state.username,
       password: this.state.password,
-      confirm: this.state.confirm,
     };
 
     console.log(newUser);
