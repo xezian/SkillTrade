@@ -8,7 +8,8 @@
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "nekodb": "^2.2.0",
-    "react-materialize": "^2.1.4"
+    "react-materialize": "^2.1.4",
+    "socket.io": "^2.1.0"
   },
   "scripts": {
     "install": "(cd client && yarn) && (cd server && yarn)",
