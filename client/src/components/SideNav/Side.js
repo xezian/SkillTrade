@@ -1,25 +1,27 @@
 import React from 'react';
+import { SideNav, SideNavItem, Button, Icon } from 'react-materialize';
 
-export const Side = () => (
+const Side = () => (
   <SideNav
-    trigger={<Button>SIDE NAV DEMO</Button>}
+    trigger={<Button floating large className="red lighten-2"><Icon>menu</Icon></Button>}
     options={{ closeOnClick: true }}
   >
-    <SideNavItem userView
+    <SideNavItem
+      userView
       user={{
-        background: 'img/office.jpg',
-        image: 'img/yuna.jpg',
-        name: 'John Doe',
-        email: 'jdandturk@gmail.com'
+        background: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBGhqWD.img?h=373&w=624&m=6&q=60&o=f&l=f&x=621&y=477',
+        image: 'https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg',
+        name: 'Jessica Jones',
+        email: 'jjones@gmail.com',
       }}
     />
-    <SideNavItem href='#!icon' icon='cloud'>First Link With Icon</SideNavItem>
-    <SideNavItem href='#!second'>Second Link</SideNavItem>
+    <SideNavItem href="#!icon" icon="portrait">Profile</SideNavItem>
+    <SideNavItem href="#!second" icon="list">Postings</SideNavItem>
     <SideNavItem divider />
-    <SideNavItem subheader>Subheader</SideNavItem>
-    <SideNavItem waves href='#!third'>Third Link With Waves</SideNavItem>
+    <SideNavItem subheader>About</SideNavItem>
+    <SideNavItem waves href="#!third" icon="rate_review">Reviews</SideNavItem>
+    <SideNavItem waves href="#!third" icon="notifications">Notifications</SideNavItem>
   </SideNav>
 );
 
-
-
+export default Side;

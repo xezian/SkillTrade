@@ -11,5 +11,7 @@ module.exports = {
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "object-shorthand": ["error", "always", { "ignoreConstructors": true }],
+    "import/prefer-default-export": "off",
+    "no-console": "off",
   }
 };

@@ -1,0 +1,21 @@
+#banner {
+	padding: 10px;
+	background-color: #e57373;
+	height: 75px;
+}
+
+.link-div a {
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 20px 20px;
+	border-radius: 50%;
+}
+
+.link-div a:hover {
+	background-color: #ff5252;
+}
+
+.link-div {
+	margin-top: 18px;
+}

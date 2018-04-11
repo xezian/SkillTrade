@@ -36,7 +36,7 @@ const skillSeeds = [
   {
     name: 'Drive you around',
     category: 'Transportation',
-    description: 'My car is reliable and clean, I have a driver\'s licence, I probably also drive for Lyft and Uber.',
+    description: 'My car is reliable and clean, I have a driver\'s license, I probably also drive for Lyft and Uber.',
   },
   {
     name: 'Available to film your movie',
@@ -60,7 +60,7 @@ const skillSeeds = [
   },
   {
     name: 'Talk Things Over',
-    category: 'Compainionship',
+    category: 'Companionship',
     description: 'I can listen and discuss your feelings about the things in your life.',
   },
 ];
