@@ -31,27 +31,45 @@ export class RegisterForm extends React.Component {
   }
 
   handleFirstChange(event) {
-    this.setState({ firstName: event.target.value });
+    this.setState({
+      firstName: event.target.value,
+      firstNameError: '',
+    });
   }
 
   handleLastChange(event) {
-    this.setState({ lastName: event.target.value });
+    this.setState({
+      lastName: event.target.value,
+      lastNameError: '',
+    });
   }
 
   handleEmailChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({
+      email: event.target.value,
+      emailError: '',
+    });
   }
 
   handleUserChange(event) {
-    this.setState({ username: event.target.value });
+    this.setState({
+      username: event.target.value,
+      usernameError: '',
+    });
   }
 
   handlePassChange(event) {
-    this.setState({ password: event.target.value });
+    this.setState({
+      password: event.target.value,
+      passwordError: '',
+    });
   }
 
   handleConfirmChange(event) {
-    this.setState({ confirm: event.target.value });
+    this.setState({
+      confirm: event.target.value,
+      confirmError: '',
+    });
   }
 
   validateForm() {
