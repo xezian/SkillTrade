@@ -3,14 +3,20 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const app = express();
 
 app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static('../client/build'));
+app.use(require('express-session')({ secret: 'exclaim this is subsequently no mystery', resave: true, saveUninitialized: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(require('./controllers/loginController'));
 app.use(require('./routes'));
 
 // for production only! where we serve the index.html through which our React code is delivered
