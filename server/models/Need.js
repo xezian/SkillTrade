@@ -4,11 +4,18 @@ const Need = ko.Model('Need', {
   name: ko.String,
   category: ko.String,
   description: ko.String,
-  // $$indexes: {
-  //   id: {
-  //     unique: true,
-  //   },
-  // },
+  img: ko.String,
+  $$indexes: {
+    name: {
+      unique: true,
+    },
+    category: {
+      unique: false,
+    },
+    description: {
+      unique: false,
+    },
+  },
 });
 
 module.exports = Need;

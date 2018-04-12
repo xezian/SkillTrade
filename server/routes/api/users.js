@@ -3,7 +3,8 @@ const usersController = require('../../controllers/usersController');
 
 // Matches with "/api/users"
 router
+  .get('/:username', usersController.checkUsername)
   .put('/', usersController.create)
-  .post('/:username', usersController.login);
+  .post('/login', usersController.login);
 
 module.exports = router;

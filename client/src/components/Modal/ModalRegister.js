@@ -2,14 +2,13 @@ import React from 'react';
 import { Modal } from 'react-materialize';
 import './Modal.css';
 
-const ModalBox = props => (
+export const ModalRegister = props => (
   <Modal
     header={props.header}
     trigger={props.trigger}
-    className="modal"
+    className="modal modal-register"
+    style={{ width: '50%', right: '-41%' }}
   >
     { props.children }
   </Modal>
 );
-
-export default ModalBox;
