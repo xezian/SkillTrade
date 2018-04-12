@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const app = express();
 
@@ -11,7 +12,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('../client/build'));
+app.use(require('express-session')({ secret: 'finish the entire project', resave: true, saveUninitialized: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(require('./routes'));
+app.use(require('./controllers/loginController'));
+
 
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {

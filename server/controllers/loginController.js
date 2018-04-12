@@ -5,15 +5,42 @@ const db = require('../models');
 // require passport
 const passport = require('passport');
 // require passport-local
+const LocalStrategy = require('passport-local').Strategy;
 
-
-// I'm building this, go ahead and ignore for now- Jason
-// module.exports = {
-//     login: (req, res) => {
-
-//     }
-// };
-// db.User
-// .findOne({ username: req.params.username })
-// .then(instance => res.json(instance))
-// .catch(err => res.status(422).json(err));
+module.exports = () => {
+  passport.use(new LocalStrategy((username, password, done) => {
+    console.log('yo');
+    console.log(username);
+    db.User
+      .findOne({ username })
+      .then((user) => {
+        // does not exist
+        if (user == null) {
+          console.log('user == null');
+          return done(null, false, { message: 'No Such User' });
+        }
+        // if exists check password
+        // hash with user obj salt param
+        const hashWord = bcrypt.hashSync(password, user.salt);
+        // match hashWords
+        if (user.hash === hashWord) {
+          return done(null, user);
+        }
+        return done(null, false, { message: 'Wrong Password' });
+      })
+      .catch(err => console.error(err));
+  }));
+  // this part handles passport user serialization and deserialization
+  passport.serializeUser((user, done) => {
+    done(null, user.id);
+  });
+  passport.deserializeUser((id, done) => {
+    db.User.findById(id)
+      .then((user) => {
+        if (user == null) {
+          done(new Error('Wrong user id.'));
+        }
+        done(null, user);
+      });
+  });
+};
