@@ -7,7 +7,7 @@ const passport = require('passport');
 // require passport-local
 const LocalStrategy = require('passport-local').Strategy;
 
-module.exports = (app) => {
+module.exports = () => {
   passport.use(new LocalStrategy((username, password, done) => {
     console.log('yo');
     console.log(username);

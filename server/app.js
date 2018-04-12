@@ -8,16 +8,17 @@ const passport = require('passport');
 const app = express();
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('express-session')({ secret: 'exclaim this is subsequently no mystery', resave: true, saveUninitialized: true }));
+app.use(express.static('../client/build'));
+app.use(require('express-session')({ secret: 'finish the entire project', resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(require('./controllers/loginController'));
 app.use(require('./routes'));
+app.use(require('./controllers/loginController'));
+
 
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {
