@@ -47,32 +47,66 @@ export class RegisterForm extends React.Component {
     this.setState({ confirm: event.target.value });
   }
 
+  validateForm() {
+    let result = true;
+    // Firstname must consist of letters only
+    if (!(/^[a-zA-Z\-]+$/).test(this.state.firstName)) {
+      result = false;
+    }
+    // Lastname must consist of letters only
+    if (!(/^[a-zA-Z\-]+$/).test(this.state.lastName)) {
+      result = false;
+    }
+    // Email must match an email format
+    if (!(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/).test(this.state.email)) {
+      result = false;
+    }
+    // Username must consist of letters and/or numbers
+    if (!(/^[a-zA-Z0-9]+$/).test(this.state.username)) {
+      result = false;
+    }
+    // Password must consist of at least:
+    // 8 characters, 1 lowercase, 1 uppercase , 1 number, and 1 special character
+    if (!(/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/).test(this.state.password)) {
+      result = false;
+    }
+    // Confirmation must match the password
+    if (this.state.password !== this.state.confirm) {
+      result = false;
+    }
+    return result;
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
-    const newUser = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-    };
+    const valid = this.validateForm();
 
-    console.log(newUser);
+    if (valid) {
+      const newUser = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password,
+      };
 
-    API.createUser(newUser)
-      .then((res) => {
-        this.setState({
-          firstName: '',
-          lastName: '',
-          email: '',
-          username: '',
-          password: '',
-          confirm: '',
-        });
-        console.log(res);
-      })
-      .catch(err => console.log(err));
+      console.log(newUser);
+
+      API.createUser(newUser)
+        .then((res) => {
+          this.setState({
+            firstName: '',
+            lastName: '',
+            email: '',
+            username: '',
+            password: '',
+            confirm: '',
+          });
+          console.log(res);
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   render() {
