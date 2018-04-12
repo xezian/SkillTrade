@@ -43,19 +43,33 @@ export class LoginForm extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Input
-          label="Username"
-          s={12}
-          value={this.state.username}
-          onChange={this.handleInputChange}
-        />
-        <Input
-          label="Password"
-          s={12}
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
-        />
+      <Row style={{ marginBottom: 0 }}>
+        <div>
+          <Input
+            label="Username"
+            s={12}
+            value={this.state.username}
+            onChange={this.handleInputChange}
+          />
+        </div>
+        <div>
+          <Input
+            label="Password"
+            s={12}
+            value={this.state.password}
+            onChange={this.handlePasswordChange}
+          />
+          <div
+            style={{
+              color: 'rgb(255, 0, 0)',
+              fontSize: 12,
+              fontStyle: 'italic',
+              marginBottom: 30,
+            }}
+          >
+            Invalid username or password
+          </div>
+        </div>
         <Button
           disabled={!this.state.username || !this.state.password}
           onClick={this.handleSubmit}
