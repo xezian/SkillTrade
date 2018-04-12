@@ -20,6 +20,6 @@ export default {
   createUser: newUser => axios.put('/api/users', newUser),
 
   // Username selection will be matched to the usernames data
-  checkUsernames: username => axios.post(`/api/user/${username}`),
+  checkUsernames: username => axios.post(`/api/users/${username}`),
 };
 

@@ -12,7 +12,6 @@ export class RegisterForm extends React.Component {
       username: '',
       password: '',
       confirm: '',
-      usernameTaken: false,
     };
 
     this.handleFirstChange = this.handleFirstChange.bind(this);
@@ -38,12 +37,6 @@ export class RegisterForm extends React.Component {
 
   handleUserChange(event) {
     this.setState({ username: event.target.value });
-    API.checkUsernames(this.state.username)
-      .then((res) => {
-        this.setState({ usernameTaken: res });
-        console.log(res);
-      })
-      .catch(err => console.log(err));
   }
 
   handlePassChange(event) {
@@ -54,50 +47,42 @@ export class RegisterForm extends React.Component {
     this.setState({ confirm: event.target.value });
   }
 
-  formIsValid() {
-    // Must consist of letters only
-    const nameRegex = /^[a-zA-Z\-]+$/;
-    // Must match an email format
-    const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    // Must consist of letters and/or numbers
-    const userRegex = /^[a-zA-Z0-9]+$/;
-    // Must consist of at least:
+  validateForm() {
+    let result = true;
+    // Firstname must consist of letters only
+    if (!(/^[a-zA-Z\-]+$/).test(this.state.firstName)) {
+      result = false;
+    }
+    // Lastname must consist of letters only
+    if (!(/^[a-zA-Z\-]+$/).test(this.state.lastName)) {
+      result = false;
+    }
+    // Email must match an email format
+    if (!(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/).test(this.state.email)) {
+      result = false;
+    }
+    // Username must consist of letters and/or numbers
+    if (!(/^[a-zA-Z0-9]+$/).test(this.state.username)) {
+      result = false;
+    }
+    // Password must consist of at least:
     // 8 characters, 1 lowercase, 1 uppercase , 1 number, and 1 special character
-    const passRegex = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
-    // If first name does not meet the regex, return false
-    if (!nameRegex.test(this.state.firstName)) {
-      console.log('firstname:', false);
-      return false;
+    if (!(/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/).test(this.state.password)) {
+      result = false;
     }
-    // If last name does not meet the regex, return false
-    if (!nameRegex.test(this.state.lastName)) {
-      console.log('lastname:', false);
-      return false;
+    // Confirmation must match the password
+    if (this.state.password !== this.state.confirm) {
+      result = false;
     }
-    // If email does not meet the regex, return false
-    if (!emailRegex.test(this.state.email)) {
-      console.log('email:', false);
-      return false;
-    }
-    // If username does not meet  the regex or it is already taken return false
-    if (!userRegex.test(this.state.username) || this.state.usernameTaken) {
-      console.log('username:', false);
-      return false;
-    }
-    // If password does not meet the regex or does not match the confirm, return false
-    if (!passRegex.test(this.state.password) || this.state.password !== this.state.confirm) {
-      console.log('confirm:', false);
-      return false;
-    }
-    // If no above condition occurs, return true
-    console.log(true);
-    return true;
+    return result;
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    if (this.formIsValid()) {
+    const valid = this.validateForm();
+
+    if (valid) {
       const newUser = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -117,7 +102,6 @@ export class RegisterForm extends React.Component {
             username: '',
             password: '',
             confirm: '',
-            usernameTaken: '',
           });
           console.log(res);
         })
