@@ -9,8 +9,6 @@ const LocalStrategy = require('passport-local').Strategy;
 
 module.exports = () => {
   passport.use(new LocalStrategy((username, password, done) => {
-    console.log('yo');
-    console.log(username);
     db.User
       .findOne({ username })
       .then((user) => {

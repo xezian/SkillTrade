@@ -28,7 +28,6 @@ export class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(`username: ${this.state.username}, password: ${this.state.password}`);
     event.preventDefault();
 
     API.getVerification(this.state.username, this.state.password)

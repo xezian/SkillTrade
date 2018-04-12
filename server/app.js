@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const login = require('./controllers/loginController');
 
 const app = express();
 
@@ -17,8 +18,8 @@ app.use(require('express-session')({ secret: 'finish the entire project', resave
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('./routes'));
-app.use(require('./controllers/loginController'));
 
+login(app);
 
 // for production only! where we serve the index.html through which our React code is delivered
 if (process.env.NODE_ENV === 'production') {
