@@ -7,6 +7,11 @@ const User = ko.Model('User', {
   email: ko.String,
   hash: ko.String,
   salt: ko.String,
+  $$indexes: {
+    username: {
+      unique: true,
+    },
+  },
 });
 
 module.exports = User;

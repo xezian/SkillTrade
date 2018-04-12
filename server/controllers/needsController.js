@@ -37,7 +37,7 @@ module.exports = {
   remove: (req, res) => {
     console.log('needs remove!');
     db.Need
-      .deleteById(req.param.id)
+      .deleteById(req.params.id)
       .then(delCount => res.send(`${delCount} records deleted`))
       .catch(err => res.status(422).json(err));
   },
