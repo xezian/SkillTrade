@@ -5,11 +5,17 @@ const Skill = ko.Model('Skill', {
   category: ko.String,
   description: ko.String,
   img: ko.String,
-  // $$indexes: {
-  //   name: {
-  //     unique: true,
-  //   },
-  // },
+  $$indexes: {
+    name: {
+      unique: true,
+    },
+    category: {
+      unique: false,
+    },
+    description: {
+      unique: false,
+    },
+  },
 });
 
 module.exports = Skill;

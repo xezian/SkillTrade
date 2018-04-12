@@ -5,11 +5,9 @@ const db = require('../models');
 
 // export functions to handle db interaction for users
 module.exports = {
-  login: (req, res) => {
-    console.log('user login!');
-    db.User
-      .findOne({ username: req.params.username })
-      .then(instance => res.json(instance))
+  checkUsername: (req, res) => {
+    db.User.count({ name: req.params.name })
+      .then(count => res.json(count))
       .catch(err => res.status(422).json(err));
   },
   create: (req, res) => {
