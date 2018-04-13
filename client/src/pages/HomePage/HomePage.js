@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
 import API from '../../utils/API';
+import './HomePage.css';
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -79,25 +80,21 @@ export class HomePage extends React.Component {
           />
         </Row>
         <Row>
-          <Col s={2} />
-          <Col s={8}>
+          <Col s={1} />
+          <Col s={10}>
             {this.state.searchResults.length > 0 ? (
               <div>
                 <h4 className="center-align">Search Results</h4>
                 {this.state.searchResults.map(result => (
-                  <Card
-                    header={<CardTitle reveal image={result.img} waves="light" />}
-                    title={result.category}
-                    reveal={result.description}
-                    style={{
-                      width: '31%',
-                      float: 'left',
-                      marginLeft: 'calc(7% / 6)',
-                      marginRight: 'calc(7% / 6)',
-                    }}
-                  >
-                    <p>{result.name}</p>
-                  </Card>
+                  <div className="card-layout">
+                    <Card
+                      header={<CardTitle reveal image={result.img} waves="light" />}
+                      title={result.category}
+                      reveal={result.description}
+                    >
+                      <p>{result.name}</p>
+                    </Card>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -106,7 +103,7 @@ export class HomePage extends React.Component {
               </p>
             )}
           </Col>
-          <Col s={2} />
+          <Col s={1} />
         </Row>
       </div>
     );
