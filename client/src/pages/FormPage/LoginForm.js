@@ -3,31 +3,19 @@ import { Row, Input, Button } from 'react-materialize';
 import API from '../../utils/API';
 
 export class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-    };
+  state = {
+    username: '',
+    password: '',
+  };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleInputChange(event) {
+  handleChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      username: event.target.value,
+      [name]: value,
     });
   }
 
-  handlePasswordChange(event) {
-    this.setState({
-      password: event.target.value,
-    });
-  }
-
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
 
     API.getVerification(this.state.username, this.state.password)
@@ -48,16 +36,19 @@ export class LoginForm extends React.Component {
           <Input
             label="Username"
             s={12}
+            name="username"
             value={this.state.username}
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
           />
         </div>
         <div>
           <Input
             label="Password"
             s={12}
+            name="password"
+            type="password"
             value={this.state.password}
-            onChange={this.handlePasswordChange}
+            onChange={this.handleChange}
           />
           <div
             style={{
