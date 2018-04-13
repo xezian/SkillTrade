@@ -1,78 +1,52 @@
 import React from 'react';
-import { Row, Input, Button } from 'react-materialize';
+import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import API from '../../utils/API';
 import './Form.css';
 
 export class RegisterForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      username: '',
-      password: '',
-      confirm: '',
-      firstNameError: '',
-      lastNameError: '',
-      emailError: '',
-      usernameError: '',
-      passwordError: '',
-      confirmError: '',
-    };
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    username: '',
+    password: '',
+    confirm: '',
+    firstNameError: '',
+    lastNameError: '',
+    emailError: '',
+    usernameError: '',
+    passwordError: '',
+    confirmError: '',
+    preloader: false,
+    registerError: false,
+    errorMsg: '',
+  };
 
-    this.handleFirstChange = this.handleFirstChange.bind(this);
-    this.handleLastChange = this.handleLastChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
-    this.handlePassChange = this.handlePassChange.bind(this);
-    this.handleConfirmChange = this.handleConfirmChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  handleFirstChange = event => {
+    this.setState({ firstName: event.target.value, firstNameError: '' });
   }
 
-  handleFirstChange(event) {
-    this.setState({
-      firstName: event.target.value,
-      firstNameError: '',
-    });
+  handleLastChange = event => {
+    this.setState({ lastName: event.target.value, lastNameError: '' });
   }
 
-  handleLastChange(event) {
-    this.setState({
-      lastName: event.target.value,
-      lastNameError: '',
-    });
+  handleEmailChange = event => {
+    this.setState({ email: event.target.value, emailError: '', registerError: false });
   }
 
-  handleEmailChange(event) {
-    this.setState({
-      email: event.target.value,
-      emailError: '',
-    });
+  handleUserChange = event => {
+    this.setState({ username: event.target.value, usernameError: '', registerError: false });
   }
 
-  handleUserChange(event) {
-    this.setState({
-      username: event.target.value,
-      usernameError: '',
-    });
+  handlePassChange = event => {
+    this.setState({ password: event.target.value, passwordError: '' });
   }
 
-  handlePassChange(event) {
-    this.setState({
-      password: event.target.value,
-      passwordError: '',
-    });
+  handleConfirmChange = event => {
+    this.setState({ confirm: event.target.value, confirmError: '' });
   }
 
-  handleConfirmChange(event) {
-    this.setState({
-      confirm: event.target.value,
-      confirmError: '',
-    });
-  }
-
-  validateForm() {
+  validateForm = () => {
     let result = true;
     // Firstname must consist of letters only
     if (!(/^[a-zA-Z\-]+$/).test(this.state.firstName)) {
@@ -120,7 +94,7 @@ export class RegisterForm extends React.Component {
     return result;
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
 
     const valid = this.validateForm();
@@ -133,28 +107,56 @@ export class RegisterForm extends React.Component {
         username: this.state.username,
         password: this.state.password,
       };
-
-      console.log(newUser);
-
-      API.createUser(newUser)
-        .then((res) => {
-          this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            username: '',
-            password: '',
-            confirm: '',
-            firstNameError: '',
-            lastNameError: '',
-            emailError: '',
-            usernameError: '',
-            passwordError: '',
-            confirmError: '',
+      this.setState({ preloader: true });
+      setTimeout(() => {
+        API.createUser(newUser)
+          .then((res) => {
+            if (typeof res.data === 'object') {
+              this.setState({
+                firstName: '',
+                lastName: '',
+                email: '',
+                username: '',
+                password: '',
+                confirm: '',
+                firstNameError: '',
+                lastNameError: '',
+                emailError: '',
+                usernameError: '',
+                passwordError: '',
+                confirmError: '',
+                preloader: false,
+                registerError:false,
+                errorMsg: '',
+              });
+            } else if (typeof res.data === 'string') {
+              this.setState({
+                preloader: false,
+                registerError: true,
+                errorMsg: res.data,
+              });
+            } 
+          })
+          .catch(err => {
+            this.setState({
+              firstName: '',
+              lastName: '',
+              email: '',
+              username: '',
+              password: '',
+              confirm: '',
+              firstNameError: '',
+              lastNameError: '',
+              emailError: '',
+              usernameError: '',
+              passwordError: '',
+              confirmError: '',
+              preloader: false,
+              registerError: true,
+              errorMsg: 'Ooops! Something went wrong, try again later',
+            });
           });
-          console.log(res);
-        })
-        .catch(err => console.log(err));
+      }, 2000);    
     }
   }
 
@@ -165,56 +167,97 @@ export class RegisterForm extends React.Component {
           <Input
             label="First Name"
             s={12}
+            name="firstName"
             value={this.state.firstName}
             onChange={this.handleFirstChange}
           />
-          <div className="error-msg">{this.state.firstNameError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.firstNameError}
+          </div>
         </div>
         <div className="input-div">
           <Input
             label="Last Name"
             s={12}
+            name="lastName"
             value={this.state.lastName}
             onChange={this.handleLastChange}
           />
-          <div className="error-msg">{this.state.lastNameError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.lastNameError}
+          </div>
         </div>
         <div className="input-div">
           <Input
             label="Email"
             s={12}
+            name="email"
             value={this.state.email}
             onChange={this.handleEmailChange}
           />
-          <div className="error-msg">{this.state.emailError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.emailError}
+          </div>
         </div>
         <div className="input-div">
           <Input
             label="Username"
             s={12}
+            name="username"
             value={this.state.username}
             onChange={this.handleUserChange}
           />
-          <div className="error-msg">{this.state.usernameError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.usernameError}
+          </div>
         </div>
         <div className="input-div">
           <Input
             label="Password"
             s={12}
+            type="password"
+            name="password"
             value={this.state.password}
             onChange={this.handlePassChange}
           />
-          <div className="error-msg">{this.state.passwordError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.passwordError}
+          </div>
         </div>
         <div className="input-div">
           <Input
             label="Confirm Password"
             s={12}
+            type="password"
+            name="confirm"
             value={this.state.confirm}
             onChange={this.handleConfirmChange}
           />
-          <div className="error-msg">{this.state.confirmError}</div>
+          <div
+            className="error-msg"
+          >
+            {this.state.confirmError}
+          </div>
         </div>
+        {this.state.preloader ? (
+          <ProgressBar />
+        ) : (
+          this.state.registerError ? (
+            <span>{this.state.errorMsg}</span>
+          ) : (
+            <span>Please fill out correctly</span>
+          )
+        )}
         <Button
           disabled={!this.state.firstName || !this.state.lastName ||
                     !this.state.email || !this.state.username ||
