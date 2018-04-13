@@ -1,11 +1,14 @@
 import React from 'react';
-import { Row, Input, Button } from 'react-materialize';
+import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import API from '../../utils/API';
 
 export class LoginForm extends React.Component {
   state = {
     username: '',
     password: '',
+    preloader: false,
+    message: false,
+    systemError: false,
   };
 
   handleChange = event => {
@@ -17,7 +20,9 @@ export class LoginForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    
+    this.setState({ preloader: true });
+    
     API.getVerification(this.state.username, this.state.password)
       .then((res) => {
         this.setState({
@@ -50,17 +55,20 @@ export class LoginForm extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <div
-            style={{
-              color: 'rgb(255, 0, 0)',
-              fontSize: 12,
-              fontStyle: 'italic',
-              marginBottom: 30,
-            }}
-          >
-            Invalid username or password
-          </div>
         </div>
+        {this.state.preloader ? (
+          <ProgressBar />
+        ) : (
+          this.state.message ? (
+            <span>Invalid username or password</span>
+          ) : (
+            this.state.systemError ? (
+              <span>Something went wrong, please try again</span>
+            ) : (
+              <span>Enter your username and password</span>
+            )
+          )
+        )}
         <Button
           disabled={!this.state.username || !this.state.password}
           onClick={this.handleSubmit}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Input, Button } from 'react-materialize';
+import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import API from '../../utils/API';
 import './Form.css';
 
@@ -17,6 +17,9 @@ export class RegisterForm extends React.Component {
     usernameError: '',
     passwordError: '',
     confirmError: '',
+    preloader: false,
+    registerError: false,
+    errorMsg: '',
   };
 
   handleFirstChange = event => {
@@ -28,11 +31,11 @@ export class RegisterForm extends React.Component {
   }
 
   handleEmailChange = event => {
-    this.setState({ email: event.target.value, emailError: '' });
+    this.setState({ email: event.target.value, emailError: '', registerError: false });
   }
 
   handleUserChange = event => {
-    this.setState({ username: event.target.value, usernameError: '' });
+    this.setState({ username: event.target.value, usernameError: '', registerError: false });
   }
 
   handlePassChange = event => {
@@ -104,28 +107,56 @@ export class RegisterForm extends React.Component {
         username: this.state.username,
         password: this.state.password,
       };
-
-      console.log(newUser);
-
-      API.createUser(newUser)
-        .then((res) => {
-          this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            username: '',
-            password: '',
-            confirm: '',
-            firstNameError: '',
-            lastNameError: '',
-            emailError: '',
-            usernameError: '',
-            passwordError: '',
-            confirmError: '',
+      this.setState({ preloader: true });
+      setTimeout(() => {
+        API.createUser(newUser)
+          .then((res) => {
+            if (typeof res.data === 'object') {
+              this.setState({
+                firstName: '',
+                lastName: '',
+                email: '',
+                username: '',
+                password: '',
+                confirm: '',
+                firstNameError: '',
+                lastNameError: '',
+                emailError: '',
+                usernameError: '',
+                passwordError: '',
+                confirmError: '',
+                preloader: false,
+                registerError:false,
+                errorMsg: '',
+              });
+            } else if (typeof res.data === 'string') {
+              this.setState({
+                preloader: false,
+                registerError: true,
+                errorMsg: res.data,
+              });
+            } 
+          })
+          .catch(err => {
+            this.setState({
+              firstName: '',
+              lastName: '',
+              email: '',
+              username: '',
+              password: '',
+              confirm: '',
+              firstNameError: '',
+              lastNameError: '',
+              emailError: '',
+              usernameError: '',
+              passwordError: '',
+              confirmError: '',
+              preloader: false,
+              registerError: true,
+              errorMsg: 'Ooops! Something went wrong, try again later',
+            });
           });
-          console.log(res);
-        })
-        .catch(err => console.log(err));
+      }, 2000);    
     }
   }
 
@@ -218,6 +249,15 @@ export class RegisterForm extends React.Component {
             {this.state.confirmError}
           </div>
         </div>
+        {this.state.preloader ? (
+          <ProgressBar />
+        ) : (
+          this.state.registerError ? (
+            <span>{this.state.errorMsg}</span>
+          ) : (
+            <span>Please fill out correctly</span>
+          )
+        )}
         <Button
           disabled={!this.state.firstName || !this.state.lastName ||
                     !this.state.email || !this.state.username ||
