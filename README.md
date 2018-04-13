@@ -1,8 +1,21 @@
 # SkillShare
-Share your skills, get hired
-## How to use
 
-### Clone the repo
+I need. I can.
+
+### What is the problem?
+
+
+### SkillShare is the solution!
+
+
+### Link to deployed version:
+
+[DEPLOYED VERSION] ()
+
+### Technologies used:
+
+
+### Steps to run locally (please do!):
 ```
 git clone <SSH Key or URL>
 ```
