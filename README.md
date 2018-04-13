@@ -1,6 +1,4 @@
-# SkillTrader
-
-## I need. I can.
+# SkillTrader "I need. I can."
 
 ### What is the problem?
 
