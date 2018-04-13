@@ -1,0 +1,46 @@
+.card-layout {
+	display: inline-block;
+	width: 23%;
+  margin-left: calc(8% / 8);
+  margin-right: calc(8% / 8);
+}
+
+@media screen and (max-width: 1250px) {
+  .card-layout {
+		width: 32%;
+	  margin-left: calc(4% / 6);
+	  margin-right: calc(4% / 6);
+	}
+}
+
+@media screen and (max-width: 850px) {
+  .card-layout {
+		width: 45%;
+	  margin-left: calc(10% / 4);
+	  margin-right: calc(10% / 4);
+	}
+}
+
+@media screen and (max-width: 600px) {
+  .card-layout {
+		width: 80%;
+	  margin-left: 10%;
+	  margin-right: 10%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+  .card-layout {
+		width: 85%;
+	  margin-left: calc(15% / 2);
+	  margin-right: calc(15% / 2);
+	}
+}
+
+@media screen and (max-width: 400px) {
+  .card-layout {
+		width: 90%;
+	  margin-left: 5%;
+	  margin-right: 5%;
+	}
+}
