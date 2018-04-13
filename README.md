@@ -14,6 +14,13 @@ I need. I can.
 
 ### Technologies used:
 
+* React
+* React-Materialize
+* MongoDB
+* NekoDB
+* Express Server
+* Passport
+* Socket.io
 
 ### Steps to run locally (please do!):
 ```
