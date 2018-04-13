@@ -1,6 +1,6 @@
-# SkillShare
+# SkillTrader
 
-I need. I can.
+## I need. I can.
 
 ### What is the problem?
 
