@@ -7,7 +7,7 @@ export class LoginForm extends React.Component {
     username: '',
     password: '',
     preloader: false,
-    message: false,
+    message: 'Enter your username and password',
     systemError: false,
   };
 
@@ -22,15 +22,26 @@ export class LoginForm extends React.Component {
     event.preventDefault();
     
     this.setState({ preloader: true });
-    
-    API.getVerification(this.state.username, this.state.password)
-      .then((res) => {
-        this.setState({
-          username: '',
-          password: '',
-        });
-      })
-      .catch(err => console.log(err));
+    setTimeout(() => {
+      API.getVerification(this.state.username, this.state.password)
+        .then((res) => {
+          if (res.data.message === 'No Such User') {
+            this.setState({
+              preloader: false,
+              systemError: true,
+              message: 'Invalid username or password',
+            });
+          } else {
+            this.setState({
+              preloader: false,
+              systemError: false,
+              message: '',
+            });
+          console.log('welcome')
+          }
+        })
+        .catch(err => console.log(err));
+    }, 2000);
   }
 
   render() {
@@ -58,15 +69,7 @@ export class LoginForm extends React.Component {
         {this.state.preloader ? (
           <ProgressBar />
         ) : (
-          this.state.message ? (
-            <span className="err-msg">Invalid username or password</span>
-          ) : (
-            this.state.systemError ? (
-              <span className="err-msg">Something went wrong, please try again</span>
-            ) : (
-              <span className="err-msg">Enter your username and password</span>
-            )
-          )
+          <span className="err-msg">{this.state.message}</span>
         )}
         <Button
           disabled={!this.state.username || !this.state.password}

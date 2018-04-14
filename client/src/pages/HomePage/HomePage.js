@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
 import API from '../../utils/API';
 import './HomePage.css';
+import logo from '../../img/logo.png';
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -46,7 +47,9 @@ export class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="center-align">Skill Share</h1>
+        <div className="logo-div">
+          <img src={logo} alt="logo" className="logo" />
+        </div>
         <Row>
           <Col s={1} m={2} l={2} />
           <Col s={10} m={8} l={2}>
@@ -105,7 +108,7 @@ export class HomePage extends React.Component {
                 ))}
               </div>
             ) : (
-              <p>
+              <p className="center-align">
                 No posting is available at this moment...
               </p>
             )}
