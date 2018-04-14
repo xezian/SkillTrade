@@ -7,7 +7,7 @@ const Need = ko.Model('Need', {
   img: ko.String,
   $$indexes: {
     name: {
-      unique: true,
+      unique: false,
     },
     category: {
       unique: false,
