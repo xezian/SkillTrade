@@ -1,4 +1,4 @@
-.error-msg, span {
+.error-msg, span.err-msg {
 	font-size: 12px;
 	color: #f00;
 	font-style: italic;

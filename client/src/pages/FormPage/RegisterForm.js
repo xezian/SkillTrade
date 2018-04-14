@@ -253,9 +253,9 @@ export class RegisterForm extends React.Component {
           <ProgressBar />
         ) : (
           this.state.registerError ? (
-            <span>{this.state.errorMsg}</span>
+            <span className="err-msg">{this.state.errorMsg}</span>
           ) : (
-            <span>Please fill out correctly</span>
+            <span className="err-msg">Please fill out correctly</span>
           )
         )}
         <Button
