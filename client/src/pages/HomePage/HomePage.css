@@ -14,6 +14,10 @@
 }
 
 @media screen and (max-width: 850px) {
+	h1 {
+		font-size: 350%;
+	}
+
   .card-layout {
 		width: 45%;
 	  margin-left: calc(10% / 4);
@@ -43,4 +47,10 @@
 	  margin-left: 5%;
 	  margin-right: 5%;
 	}
+}
+
+@media screen and (max-width: 992px) {
+  .clear {
+  	clear: both;
+  }
 }

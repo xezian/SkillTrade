@@ -48,34 +48,43 @@ export class HomePage extends React.Component {
       <div>
         <h1 className="center-align">Skill Share</h1>
         <Row>
-          <Col s={2} />
-          <Input
-            s={3}
-            type="select"
-            label="Options"
-            defaultValue="1"
-            value={this.state.option}
-            onChange={this.handleOptionChange}
-          >
-            <option value="1">I can ...</option>
-            <option value="2">I need ...</option>
-          </Input>
-          <Input
-            placeholder="Search..."
-            s={4}
-            label="What's up?"
-            value={this.state.category}
-            onChange={this.handleInputChange}
-          />
-          <Button
-            floating
-            large
-            className="red"
-            waves="light"
-            icon="search"
-            onClick={this.handleSubmit}
-            disabled={!this.state.category}
-          />
+          <Col s={1} m={2} l={2} />
+          <Col s={10} m={8} l={2}>
+            <Input
+              s={12}
+              type="select"
+              label="Options"
+              defaultValue="1"
+              value={this.state.option}
+              onChange={this.handleOptionChange}
+            >
+              <option value="1">I can ...</option>
+              <option value="2">I need ...</option>
+            </Input>
+          </Col>
+          <Col s={1} m={2} />
+          <Col s={1} m={2} className="clear" />
+          <Col s={8} m={7} l={5}>
+            <Input
+              s={12}
+              label="What's up?"
+              placeholder="Search..."
+              value={this.state.category}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={2} m={1} l={1}>
+            <Button
+              floating
+              large
+              className="red"
+              waves="light"
+              icon="search"
+              onClick={this.handleSubmit}
+              disabled={!this.state.category}
+            />
+          </Col>
+          <Col s={1} m={2} l={2} />
         </Row>
         <Row>
           <Col s={1} />
