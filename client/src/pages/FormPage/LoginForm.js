@@ -29,7 +29,6 @@ export class LoginForm extends React.Component {
           username: '',
           password: '',
         });
-        console.log(res);
       })
       .catch(err => console.log(err));
   }
