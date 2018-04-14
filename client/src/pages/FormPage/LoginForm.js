@@ -29,7 +29,6 @@ export class LoginForm extends React.Component {
           username: '',
           password: '',
         });
-        console.log(res);
       })
       .catch(err => console.log(err));
   }
@@ -60,12 +59,12 @@ export class LoginForm extends React.Component {
           <ProgressBar />
         ) : (
           this.state.message ? (
-            <span>Invalid username or password</span>
+            <span className="err-msg">Invalid username or password</span>
           ) : (
             this.state.systemError ? (
-              <span>Something went wrong, please try again</span>
+              <span className="err-msg">Something went wrong, please try again</span>
             ) : (
-              <span>Enter your username and password</span>
+              <span className="err-msg">Enter your username and password</span>
             )
           )
         )}
