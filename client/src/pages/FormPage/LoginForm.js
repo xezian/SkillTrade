@@ -1,35 +1,28 @@
 import React from 'react';
-import { Row, Input, Button } from 'react-materialize';
+import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import API from '../../utils/API';
 
 export class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-    };
+  state = {
+    username: '',
+    password: '',
+    preloader: false,
+    message: false,
+    systemError: false,
+  };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleInputChange(event) {
+  handleChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      username: event.target.value,
+      [name]: value,
     });
   }
 
-  handlePasswordChange(event) {
-    this.setState({
-      password: event.target.value,
-    });
-  }
-
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-
+    
+    this.setState({ preloader: true });
+    
     API.getVerification(this.state.username, this.state.password)
       .then((res) => {
         this.setState({
@@ -48,28 +41,34 @@ export class LoginForm extends React.Component {
           <Input
             label="Username"
             s={12}
+            name="username"
             value={this.state.username}
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
           />
         </div>
         <div>
           <Input
             label="Password"
             s={12}
+            name="password"
+            type="password"
             value={this.state.password}
-            onChange={this.handlePasswordChange}
+            onChange={this.handleChange}
           />
-          <div
-            style={{
-              color: 'rgb(255, 0, 0)',
-              fontSize: 12,
-              fontStyle: 'italic',
-              marginBottom: 30,
-            }}
-          >
-            Invalid username or password
-          </div>
         </div>
+        {this.state.preloader ? (
+          <ProgressBar />
+        ) : (
+          this.state.message ? (
+            <span>Invalid username or password</span>
+          ) : (
+            this.state.systemError ? (
+              <span>Something went wrong, please try again</span>
+            ) : (
+              <span>Enter your username and password</span>
+            )
+          )
+        )}
         <Button
           disabled={!this.state.username || !this.state.password}
           onClick={this.handleSubmit}
