@@ -30,7 +30,6 @@ export class HomePage extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(`option: ${this.state.option}, category: ${this.state.category}`);
     event.preventDefault();
 
     API.getResults(this.state.option, this.state.category)
@@ -40,7 +39,6 @@ export class HomePage extends React.Component {
           category: '',
           searchResults: res.data,
         });
-        console.log(res);
       })
       .catch(err => console.log(err));
   }
@@ -86,7 +84,7 @@ export class HomePage extends React.Component {
               <div>
                 <h4 className="center-align">Search Results</h4>
                 {this.state.searchResults.map(result => (
-                  <div className="card-layout">
+                  <div className="card-layout" key={result._id}>
                     <Card
                       header={<CardTitle reveal image={result.img} waves="light" />}
                       title={result.category}
