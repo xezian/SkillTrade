@@ -14,7 +14,7 @@ export default {
 
   // Username will be matched to the password to verify the user and
   // access to the users profile page will be given
-  getVerification: (username, password) => axios.post('/api/users/login', { username, password }).then(response => console.log(response)),
+  getVerification: (username, password) => axios.post('/api/users/login', { username, password }),
 
   // New user will be created
   createUser: newUser => axios.put('/api/users', newUser),
