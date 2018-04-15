@@ -15,7 +15,7 @@
     "dev": "concurrently \"cd client && yarn start\" \"cd server && yarn dev\"",
     "lint": "eslint .",
     "test:server": "mocha --timeout 10000",
-    "test": "yarn lint; yarn test:server; CI=true yarn test:client",
+    "test": "yarn test:server; CI=true yarn test:client",
     "test:client": "cd client; yarn test",
     "seed": "node ./seed/seed",
     "heroku-postbuild": "cd client && yarn run build"

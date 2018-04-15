@@ -63,25 +63,48 @@ describe('Need', () => {
   });
 });
 // describe('User', () => {
-//   let length = 0;
-//   beforeEach((done) => { // Before each test we empty the database
+//   let id;
+//   beforeEach((done) => { // Create a dummy user
+//     const user = {
+//       firstName: 'Buddy',
+//       lastName: 'oldPal',
+//       email: 'not@real.net',
+//       username: 'usernameduser',
+//       password: '876*&^uytUYThgf',
+//     };
 //     chai.request(server)
-//       .put('/api/users')
-
+//       .put('/api/users', user)
+//       .then((userOb) => {
+//         id = userOb._id; 
+//         done()
+//       });
 //   });
 //   /*
-//   * Test the /POST route
+//   * Test the /POST login route
 //   */
 //   describe('/POST user login', () => {
-//     it('it should GET all the users', (done) => {
+//     it('it should log in correctly with the correct username/password', (done) => {
+//       const loginner = {
+//         username: 'usernameduser',
+//         password: '876*&^uytUYThgf',
+//       };
 //       chai.request(server)
-//         .post('/api/users/login')
+//         .post('/api/users/login', loginner)
 //         .end((err, res) => {
 //           res.should.have.status(200);
-//           res.body.should.be.a('array');
-//           res.body.length.should.be.eql(length);
+//           res.body.should.be.an('object');
+//           console.log(res.body);
+//           // res.body.username.should.equal('usernameduser');
 //           done();
 //         });
 //     });
+//   });
+//   afterEach((done) => {
+//     db.User
+//       .deleteById(id)
+//       .then((deletedCount) => {
+//         console.log(deletedCount);
+//         done();
+//       });
 //   });
 // });
