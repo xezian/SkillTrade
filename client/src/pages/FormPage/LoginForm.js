@@ -57,6 +57,7 @@ export class LoginForm extends React.Component {
           <Input
             label="Username"
             s={12}
+            m={6}
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
@@ -66,6 +67,7 @@ export class LoginForm extends React.Component {
           <Input
             label="Password"
             s={12}
+            m={6}
             name="password"
             type="password"
             value={this.state.password}
@@ -75,7 +77,7 @@ export class LoginForm extends React.Component {
         {this.state.preloader ? (
           <ProgressBar />
         ) : (
-          <span className="err-msg">{this.state.message}</span>
+          <span className="err-msg err-msg-login">{this.state.message}</span>
         )}
         <Button
           disabled={!this.state.username || !this.state.password}

@@ -7,7 +7,6 @@ export const ModalRegister = props => (
     header={props.header}
     trigger={props.trigger}
     className="modal modal-register"
-    style={{ width: '50%', right: '-41%' }}
   >
     { props.children }
   </Modal>

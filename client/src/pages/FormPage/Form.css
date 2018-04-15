@@ -4,7 +4,11 @@
 	font-style: italic;
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 15px;
+}
+
+span.err-msg-login,
+.progress {
+	margin: 20px 0 20px 0;
 }
 
 .input-div {
@@ -19,3 +23,4 @@ input[type=text], input[type=password] {
 .btn-form {
 	margin: 15px auto -20px auto;
 }
+
