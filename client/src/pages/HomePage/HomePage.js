@@ -52,11 +52,10 @@ export class HomePage extends React.Component {
         </div>
         <Row>
           <Col s={1} m={2} l={2} />
-          <Col s={10} m={8} l={2}>
+          <Col s={10} m={8} l={2} className="main-input" >
             <Input
               s={12}
               type="select"
-              label="Options"
               defaultValue="1"
               value={this.state.option}
               onChange={this.handleOptionChange}
@@ -67,11 +66,10 @@ export class HomePage extends React.Component {
           </Col>
           <Col s={1} m={2} />
           <Col s={1} m={2} className="clear" />
-          <Col s={8} m={7} l={5}>
+          <Col s={8} m={7} l={5} className="main-input" >
             <Input
               s={12}
-              label="What's up?"
-              placeholder="Search..."
+              placeholder="Search skill/need categories..."
               value={this.state.category}
               onChange={this.handleInputChange}
             />
@@ -80,7 +78,7 @@ export class HomePage extends React.Component {
             <Button
               floating
               large
-              className="red"
+              className="btn-search"
               waves="light"
               icon="search"
               onClick={this.handleSubmit}

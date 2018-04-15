@@ -1,0 +1,9 @@
+.menu-btn {
+	background-color: #ef8c2e;
+	margin-top: 10px;
+	transition: background 0.3s;
+}
+
+.menu-btn:hover {
+	background-color: #ff9d3f;
+}
