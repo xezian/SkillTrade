@@ -57,7 +57,6 @@ export class HomePage extends React.Component {
               s={12}
               type="select"
               label="Options"
-              defaultValue="1"
               value={this.state.option}
               onChange={this.handleOptionChange}
             >

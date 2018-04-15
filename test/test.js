@@ -62,49 +62,49 @@ describe('Need', () => {
     });
   });
 });
-// describe('User', () => {
-//   let id;
-//   beforeEach((done) => { // Create a dummy user
-//     const user = {
-//       firstName: 'Buddy',
-//       lastName: 'oldPal',
-//       email: 'not@real.net',
-//       username: 'usernameduser',
-//       password: '876*&^uytUYThgf',
-//     };
-//     chai.request(server)
-//       .put('/api/users', user)
-//       .then((userOb) => {
-//         id = userOb._id; 
-//         done()
-//       });
-//   });
-//   /*
-//   * Test the /POST login route
-//   */
-//   describe('/POST user login', () => {
-//     it('it should log in correctly with the correct username/password', (done) => {
-//       const loginner = {
-//         username: 'usernameduser',
-//         password: '876*&^uytUYThgf',
-//       };
-//       chai.request(server)
-//         .post('/api/users/login', loginner)
-//         .end((err, res) => {
-//           res.should.have.status(200);
-//           res.body.should.be.an('object');
-//           console.log(res.body);
-//           // res.body.username.should.equal('usernameduser');
-//           done();
-//         });
-//     });
-//   });
-//   afterEach((done) => {
-//     db.User
-//       .deleteById(id)
-//       .then((deletedCount) => {
-//         console.log(deletedCount);
-//         done();
-//       });
-//   });
-// });
+describe('User', () => {
+  let id;
+  beforeEach((done) => { // Create a dummy user
+    const user = {
+      firstName: 'Buddy',
+      lastName: 'oldPal',
+      email: 'not@real.net',
+      username: 'usernameduser',
+      password: '876*&^uytUYThgf',
+    };
+    chai.request(server)
+      .post('/api/users')
+      .send(user)
+      .then((response) => {
+        id = response.body._id;
+        done();
+      });
+  });
+  /*
+  * Test the /POST login route
+  */
+  describe('/POST user login', () => {
+    it('it should log in correctly with the correct username/password', (done) => {
+      const loginner = {
+        username: 'usernameduser',
+        password: '876*&^uytUYThgf',
+      };
+      chai.request(server)
+        .post('/api/users/login')
+        .send(loginner)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.an('object');
+          res.body.username.should.equal('usernameduser');
+          done();
+        });
+    });
+  });
+  afterEach((done) => {
+    db.User
+      .deleteById(id)
+      .then((deletedCount) => {
+        done();
+      });
+  });
+});

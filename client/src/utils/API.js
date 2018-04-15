@@ -17,6 +17,6 @@ export default {
   getVerification: (username, password) => axios.post('/api/users/login', { username, password }),
 
   // New user will be created
-  createUser: newUser => axios.put('/api/users', newUser),
+  createUser: newUser => axios.post('/api/users', newUser),
 };
 
