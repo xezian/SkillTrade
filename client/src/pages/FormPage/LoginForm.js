@@ -40,7 +40,13 @@ export class LoginForm extends React.Component {
           console.log('welcome')
           }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          this.setState({
+            preloader: false,
+            systemError: true,
+            message: 'Something went wrong, try again later',
+          });
+        });
     }, 2000);
   }
 
