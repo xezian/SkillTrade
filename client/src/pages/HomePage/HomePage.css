@@ -7,6 +7,38 @@
 	height: 175px;
 }
 
+.select-wrapper span.caret {
+	margin-right: -15px;
+}
+
+.main-input input[type=text] {
+	box-shadow: 0 0 10px #0b1d7e;
+	border-radius: 5px;
+	padding: 0 15px;
+}
+
+.main-input input[type=text]:focus {
+	border: none;
+	box-shadow: 0 0 20px #0b1d7e;
+}
+
+.dropdown-content {
+	border-radius: 5px;
+}
+
+.dropdown-content li>span {
+	color: #555;
+}
+
+.btn-search {
+	margin: 7px 10px;
+	background-color: #ef8c2e;
+}
+
+.btn-search:hover {
+	background-color: #ff9d3f;
+}
+
 .card-layout {
 	display: inline-block;
 	width: 23%;
