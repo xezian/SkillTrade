@@ -53,21 +53,19 @@ export class LoginForm extends React.Component {
   render() {
     return (
       <Row style={{ marginBottom: 0 }}>
-        <div>
+        <div className="input-login">
           <Input
             label="Username"
             s={12}
-            m={6}
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="input-login">
           <Input
             label="Password"
             s={12}
-            m={6}
             name="password"
             type="password"
             value={this.state.password}
