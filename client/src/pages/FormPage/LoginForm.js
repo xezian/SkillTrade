@@ -57,6 +57,7 @@ export class LoginForm extends React.Component {
           <Input
             label="Username"
             s={12}
+            m={6}
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
@@ -66,6 +67,7 @@ export class LoginForm extends React.Component {
           <Input
             label="Password"
             s={12}
+            m={6}
             name="password"
             type="password"
             value={this.state.password}

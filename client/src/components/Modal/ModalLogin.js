@@ -7,6 +7,7 @@ export const ModalLogin = props => (
     header={props.header}
     trigger={props.trigger}
     className="modal modal-login"
+
   >
     { props.children }
   </Modal>
