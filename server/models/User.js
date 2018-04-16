@@ -11,6 +11,9 @@ const User = ko.Model('User', {
     username: {
       unique: true,
     },
+    email: {
+      unique: true,
+    },
   },
 });
 
