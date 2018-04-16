@@ -16,7 +16,6 @@ const Banner = () => (
       <ModalLogin
         header="User Login"
         trigger={<a href="Login">Login</a>}
-        style={{ width: '20%' }}
       >
         <LoginForm />
       </ModalLogin>

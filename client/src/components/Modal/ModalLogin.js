@@ -7,7 +7,6 @@ export const ModalLogin = props => (
     header={props.header}
     trigger={props.trigger}
     className="modal"
-    style={{ width: '30%', right: '-50%' }}
   >
     { props.children }
   </Modal>
