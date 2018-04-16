@@ -10,18 +10,20 @@ const Side = () => (
     <SideNavItem
       userView
       user={{
-        background: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBGhqWD.img?h=373&w=624&m=6&q=60&o=f&l=f&x=621&y=477',
-        image: 'https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg',
-        name: 'Jessica Jones',
-        email: 'jjones@gmail.com',
+        background: 'https://dzrlz2ysbzk1i.cloudfront.net/directblinds/media/direct-blinds/' +
+                    'product%20images%20-%20lifestyles%20closeups%20swatches/vertical%20blinds/' +
+                    'vertical%20swatches/bermuda-plain_dark-grey-(2).jpg?ext=.jpg',
+        image: 'http://gustenyvean.com/sites/all/themes/gusten/images/icon-4.png',
+        name: 'Please login',
+        email: '...',
       }}
     />
-    <SideNavItem href="#!icon" icon="portrait">Profile</SideNavItem>
-    <SideNavItem href="#!second" icon="list">Postings</SideNavItem>
+    <SideNavItem href="#" icon="person">Log in</SideNavItem>
+    <SideNavItem href="#" icon="person_add">Register</SideNavItem>
     <SideNavItem divider />
     <SideNavItem subheader>About</SideNavItem>
-    <SideNavItem waves href="#!third" icon="rate_review">Reviews</SideNavItem>
-    <SideNavItem waves href="#!third" icon="notifications">Notifications</SideNavItem>
+    <SideNavItem waves href="#" icon="info">SkillTrade</SideNavItem>
+    <SideNavItem waves href="#" icon="contact_mail">Contact</SideNavItem>
   </SideNav>
 );
 
