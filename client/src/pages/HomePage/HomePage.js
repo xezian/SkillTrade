@@ -56,7 +56,6 @@ class HomePage extends React.Component {
             <Input
               s={12}
               type="select"
-              defaultValue="1"
               value={this.state.option}
               onChange={this.handleOptionChange}
             >

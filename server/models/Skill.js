@@ -7,7 +7,7 @@ const Skill = ko.Model('Skill', {
   img: ko.String,
   $$indexes: {
     name: {
-      unique: true,
+      unique: false,
     },
     category: {
       unique: false,
