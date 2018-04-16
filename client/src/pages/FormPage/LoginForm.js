@@ -25,7 +25,7 @@ export class LoginForm extends React.Component {
     setTimeout(() => {
       API.getVerification(this.state.username, this.state.password)
         .then((res) => {
-          if (res.data.message === 'No Such User') {
+          if (res.data.message === 'No Such User' || res.data.message === 'Wrong Password') {
             this.setState({
               preloader: false,
               systemError: true,
@@ -57,7 +57,6 @@ export class LoginForm extends React.Component {
           <Input
             label="Username"
             s={12}
-            m={6}
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
@@ -67,7 +66,6 @@ export class LoginForm extends React.Component {
           <Input
             label="Password"
             s={12}
-            m={6}
             name="password"
             type="password"
             value={this.state.password}
