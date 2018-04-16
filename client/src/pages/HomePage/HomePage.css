@@ -35,8 +35,13 @@
 	background-color: #ef8c2e;
 }
 
-.btn-search:hover {
+.btn-search:hover,
+.btn-search:focus {
 	background-color: #ff9d3f;
+}
+
+.btn-search:visited {
+	background-color: #ef8c2e;
 }
 
 .card-layout {

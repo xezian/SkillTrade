@@ -53,7 +53,7 @@ export class LoginForm extends React.Component {
   render() {
     return (
       <Row style={{ marginBottom: 0 }}>
-        <div>
+        <div className="input-login">
           <Input
             label="Username"
             s={12}
@@ -63,7 +63,7 @@ export class LoginForm extends React.Component {
             onChange={this.handleChange}
           />
         </div>
-        <div>
+        <div className="input-login">
           <Input
             label="Password"
             s={12}

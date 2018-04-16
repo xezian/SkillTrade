@@ -4,7 +4,7 @@ import API from '../../utils/API';
 import './HomePage.css';
 import logo from '../../img/logo.png';
 
-export class HomePage extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -116,3 +116,5 @@ export class HomePage extends React.Component {
     );
   }
 }
+
+export default HomePage;

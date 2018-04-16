@@ -11,7 +11,8 @@ span.err-msg-login,
 	margin: 20px 0 20px 0;
 }
 
-.input-div {
+.input-div,
+.input-login {
 	width: 50%;
 	display: inline-block;
 }
@@ -24,3 +25,8 @@ input[type=text], input[type=password] {
 	margin: 15px auto -20px auto;
 }
 
+@media screen and (max-width: 750px) {
+	.input-login {
+		width: 100%;
+	}
+}

@@ -1,5 +1,7 @@
 .modal {
 	border-radius: 5px;
+	width: 40%;
+
 }
 
 .modal input {
@@ -36,4 +38,16 @@
 
 .modal-footer>.btn {
   color: #fff;
+}
+
+@media screen and (max-width: 1100px) {
+	.modal {
+		width: 55%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.modal {
+		width: 80%;
+	}
 }
