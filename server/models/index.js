@@ -8,7 +8,9 @@ ko.connect({
 });
 
 module.exports = {
-  User: require("./User"),
-  Skill: require("./Skill"),
-  Need: require("./Need"),
+  User: require('./User'),
+  Skill: require('./Skill'),
+  Need: require('./Need'),
+  SkillMessage: require('./SkillMessage'),
+  NeedMessage: require('./NeedMessage'),
 };
