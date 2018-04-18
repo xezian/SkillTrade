@@ -5,7 +5,11 @@ const Skill = ko.Model('Skill', {
   category: ko.String,
   description: ko.String,
   img: ko.String,
+  user: ko.models.User,
   $$indexes: {
+    user: {
+      unique: false,
+    },
     name: {
       unique: false,
     },
