@@ -14,5 +14,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-console": "off",
     "no-useless-escape": "off",
+    "jsx-a11y/anchor-is-valid": [ "error", "never" ],
   }
 };
