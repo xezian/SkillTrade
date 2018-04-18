@@ -18,5 +18,8 @@ export default {
 
   // New user will be created
   createUser: newUser => axios.post('/api/users', newUser),
+
+  // Data of the logged in user will be sent to the user page
+  getUserData: username => axios.get(`/api/users/${username}`),
 };
 
