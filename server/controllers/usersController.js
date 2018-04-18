@@ -50,4 +50,10 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+  findByUsername: (req, res) => {
+    db.User
+      .findOne({ username: req.params.username })
+      .then(instance => res.json(instance))
+      .catch(err => res.status(422).json(err));
+  },
 };
