@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SideNav, SideNavItem, Button, Icon } from 'react-materialize';
 import './Side.css';
 
@@ -18,8 +19,9 @@ const Side = () => (
         email: '...',
       }}
     />
-    <SideNavItem href="#" icon="person">Log in</SideNavItem>
-    <SideNavItem href="#" icon="person_add">Register</SideNavItem>
+    <SideNavItem icon="home"><Link to="/">Homepage</Link></SideNavItem>
+    <SideNavItem icon="person"><Link to="/signin">Sign In</Link></SideNavItem>
+    <SideNavItem icon="person_add"><Link to="/signup">Sign Up</Link></SideNavItem>
     <SideNavItem divider />
     <SideNavItem subheader>About</SideNavItem>
     <SideNavItem waves href="#" icon="info">SkillTrade</SideNavItem>
