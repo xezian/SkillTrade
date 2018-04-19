@@ -1,0 +1,26 @@
+.container {
+	margin-top: 30px;
+}
+
+.profile-img {
+	width: 204px;
+	height: 240px;
+}
+
+.userpage-form {
+	margin-top: 20px;
+}
+
+.userpage-btn {
+	width: 100%;
+	background-color: #ef8c2e;
+}
+
+.userpage-btn:hover,
+.userpage-btn:focus {
+	background-color: #ff9d3f;
+}
+
+.userpage-btn:visited {
+	background-color: #ef8c2e;
+}
