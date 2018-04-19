@@ -1,10 +1,14 @@
 .logo-div {
 	text-align: center;
-	margin: 50px auto; 
+	margin: 50px auto 25px; 
 }
 
 .logo {
 	height: 175px;
+}
+
+.logo-brand {
+	display: none;
 }
 
 .select-wrapper span.caret {
@@ -59,15 +63,25 @@
 	}
 }
 
-@media screen and (max-width: 850px) {
-	h1 {
-		font-size: 350%;
-	}
+@media screen and (max-width: 992px) {
+  .clear {
+  	clear: both;
+  }
 
+  .logo {
+		height: 150px;
+	}
+}
+
+@media screen and (max-width: 850px) {
   .card-layout {
 		width: 45%;
 	  margin-left: calc(10% / 4);
 	  margin-right: calc(10% / 4);
+	}
+
+	.logo {
+		height: 125px;
 	}
 }
 
@@ -76,6 +90,15 @@
 		width: 80%;
 	  margin-left: 10%;
 	  margin-right: 10%;
+	}
+
+	.logo {
+		display: none;
+	}
+
+	.logo-brand {
+		display: inline-block;
+		height: 50px;
 	}
 }
 
@@ -93,10 +116,4 @@
 	  margin-left: 5%;
 	  margin-right: 5%;
 	}
-}
-
-@media screen and (max-width: 992px) {
-  .clear {
-  	clear: both;
-  }
 }

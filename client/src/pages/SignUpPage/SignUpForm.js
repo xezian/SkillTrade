@@ -118,7 +118,7 @@ class SignUpForm extends React.Component {
                 firstName: '',
                 lastName: '',
                 email: '',
-                username: '',
+                username: res.data.username,
                 password: '',
                 confirm: '',
                 firstNameError: '',
@@ -248,7 +248,7 @@ class SignUpForm extends React.Component {
                 <ProgressBar />
               ) : (
                 this.state.signedUp ? (
-                  <Redirect to="/users/:username" />
+                  <Redirect to={`/users/${this.state.username}`} />
                 ) : (
                   this.state.registerError ? (
                     <span className="err-msg">{this.state.errorMsg}</span>
