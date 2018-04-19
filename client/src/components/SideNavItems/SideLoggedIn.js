@@ -1,15 +1,15 @@
 import React from 'react';
 import { SideNavItem } from 'react-materialize';
 
-export const SideLoggedIn = () => (
+export const SideLoggedIn = ({ data }) => (
   <div>
     <SideNavItem
       userView
       user={{
         background: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBGhqWD.img?h=373&w=624&m=6&q=60&o=f&l=f&x=621&y=477',
         image: 'https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg',
-        name: 'Jessica Jones',
-        email: 'jjones@gmail.com',
+        name: `${data.firstName} ${data.lastName}`,
+        email: `${data.email}`,
       }}
     />
     <SideNavItem href="#!icon" icon="portrait">Profile</SideNavItem>
