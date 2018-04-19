@@ -1,1 +1,3 @@
-export { default } from './Side';
+export * from './Side';
+export * from './SideActive';
+

@@ -2,6 +2,9 @@
 	background-color: #ef8c2e;
 	margin-top: 10px;
 	transition: background 0.3s;
+	position: absolute;
+	top: 10px;
+	left:10%;
 }
 
 .menu-btn:hover {

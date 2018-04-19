@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
+import { Side } from '../../components/SideNav';
 import API from '../../utils/API';
 import './HomePage.css';
 import logo from '../../img/logo.png';
@@ -47,6 +48,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
+        <Side />
         <div className="logo-div">
           <img src={logo} alt="logo" className="logo" />
         </div>
