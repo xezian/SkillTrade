@@ -87,9 +87,22 @@ class UserPage extends React.Component {
                     value={this.state.category}
                     onChange={this.handleOptionChange}
                   >
-                    <option value="2">Landscaping</option>
-                    <option value="3">Computer</option>
+                      <option value="Landscaping">Landscaping</option>
+                      <option value="Home Repair">Home Repair</option>
+                      <option value="Automotive">Automotive</option>
+                      <option value="Computer and Technology">Computer and Technology</option>
+                      <option value="Pet Care">Pet Care</option>
+                      <option value="Accounting">Accounting</option>
+                      <option value="Legal">Legal</option>
+                      <option value="Health and Wellness">Health </option>
+                      <option value="Bicycle Repair">Bicycle </option>
+                      <option value="Miscellaneous">Miscellaneous</option>
                   </Input>
+                  <Input
+                    s={12}
+                    label="Title"
+                    type="textarea"
+                  />
                   <Input
                     s={12}
                     label="Description of your skill or need"
