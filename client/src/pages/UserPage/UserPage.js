@@ -3,7 +3,7 @@ import API from '../../utils/API';
 
 class UserPage extends React.Component {
 	state = {
-		user: this.props.match.params.username,
+		user: this.props.username,
 		data: [],
 	}
 

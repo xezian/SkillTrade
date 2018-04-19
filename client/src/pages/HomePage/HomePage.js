@@ -3,6 +3,7 @@ import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
 import API from '../../utils/API';
 import './HomePage.css';
 import logo from '../../img/logo.png';
+import logoBrand from '../../img/logo-brand.png';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class HomePage extends React.Component {
       <div>
         <div className="logo-div">
           <img src={logo} alt="logo" className="logo" />
+          <img src={logoBrand} alt="logo-brand" className="logo-brand" />
         </div>
         <Row>
           <Col s={1} m={2} l={2} />

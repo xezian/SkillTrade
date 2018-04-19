@@ -10,7 +10,7 @@
 	margin: 0 auto;
 }
 
-.navbar>li {
+.navbar li {
 	font-size: 120%;
 	display: inline-block;
 	margin:15px;

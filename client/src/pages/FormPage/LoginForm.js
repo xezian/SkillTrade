@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import API from '../../utils/API';
 
@@ -6,6 +7,7 @@ export class LoginForm extends React.Component {
   state = {
     username: '',
     password: '',
+    loggedIn: false,
     preloader: false,
     message: 'Enter your username and password',
     systemError: false,
@@ -33,11 +35,12 @@ export class LoginForm extends React.Component {
             });
           } else {
             this.setState({
+              loggedIn: true,
               preloader: false,
               systemError: false,
               message: '',
             });
-          console.log('welcome')
+          console.log(this.state.link);
           }
         })
         .catch(err => {
@@ -72,11 +75,17 @@ export class LoginForm extends React.Component {
             onChange={this.handleChange}
           />
         </div>
+
         {this.state.preloader ? (
           <ProgressBar />
         ) : (
-          <span className="err-msg err-msg-login">{this.state.message}</span>
+          this.state.loggedIn ? (
+            <Redirect to="/users/:cuneyt" /> 
+          ) : (
+            <span className="err-msg err-msg-login">{this.state.message}</span>
+          )
         )}
+
         <Button
           disabled={!this.state.username || !this.state.password}
           onClick={this.handleSubmit}
