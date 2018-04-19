@@ -60,6 +60,7 @@ class HomePage extends React.Component {
               type="select"
               value={this.state.option}
               onChange={this.handleOptionChange}
+              className="option"
             >
               <option value="1">I can ...</option>
               <option value="2">I need ...</option>
