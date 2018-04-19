@@ -8,7 +8,9 @@ const Banner = () => (
   <Row id="banner">
     <div className="banner-div">
       <Col s={1} m={1} l={1}>
-        <Side />
+        {(/^((?=\/users\/[a-zA-Z0-9]).*)$/).test(window.location.pathname) ?
+          <Side signedIn={true} /> : <Side signedIn={false} />
+        }
       </Col>
       <Col s={11} m={7} l={8} />
       <Col m={4} l={3}>
