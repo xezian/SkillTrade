@@ -21,5 +21,8 @@ export default {
 
   // Data of the logged in user will be sent to the user page
   getUserData: username => axios.get(`/api/users/${username}`),
+
+  // Upload an image
+  uploadImage: img => axios.post('/api/upload', img),
 };
 
