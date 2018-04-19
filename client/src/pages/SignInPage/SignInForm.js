@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Row, Col, Input, Button, ProgressBar } from 'react-materialize';
+import { Side } from '../../components/SideNav';
 import API from '../../utils/API';
 import './SignInForm.css';
 
@@ -57,57 +58,60 @@ class SignInForm extends React.Component {
 
   render() {
     return (
-      <div className="signin-div">
-        <h4 className="center-align">Sign In</h4>
-        <Row>
-          <Col s={12}>
-            <Input
-              label="Username"
-              s={12}
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </Col>
- 
-          <Col s={12}>
-            <Input
-              label="Password"
-              s={12}
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </Col>
-        </Row>
+      <div>
+        <Side />
+        <div className="signin-div">
+          <h4 className="center-align">Sign In</h4>
+          <Row>
+            <Col s={12}>
+              <Input
+                label="Username"
+                s={12}
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </Col>
+   
+            <Col s={12}>
+              <Input
+                label="Password"
+                s={12}
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </Col>
+          </Row>
 
-        <Row>
-          <Col s={12}>
-            <div className="msg-div">
-              {this.state.preloader ? (
-                <ProgressBar />
-              ) : (
-                this.state.loggedIn ? (
-                  <Redirect to={`/users/${this.state.username}`} />
+          <Row>
+            <Col s={12}>
+              <div className="msg-div">
+                {this.state.preloader ? (
+                  <ProgressBar />
                 ) : (
-                  <span>{this.state.message}</span>
-                )
-              )}
-            </div>
-          </Col>
-        </Row>
+                  this.state.loggedIn ? (
+                    <Redirect to={`/users/${this.state.username}`} />
+                  ) : (
+                    <span>{this.state.message}</span>
+                  )
+                )}
+              </div>
+            </Col>
+          </Row>
 
-        <Row>
-          <Col s={12}>
-            <Button
-              disabled={!this.state.username || !this.state.password}
-              onClick={this.handleSubmit}
-            >
-              Log In
-            </Button>
-          </Col>
-        </Row>
+          <Row>
+            <Col s={12}>
+              <Button
+                disabled={!this.state.username || !this.state.password}
+                onClick={this.handleSubmit}
+              >
+                Log In
+              </Button>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

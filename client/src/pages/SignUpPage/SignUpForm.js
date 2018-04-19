@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Row, Col, Input, Button, ProgressBar } from 'react-materialize';
+import { Side } from '../../components/SideNav';
 import API from '../../utils/API';
 import './SignUpForm.css';
 
@@ -165,115 +166,118 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-div">
-        <h4 className="center-align">Sign Up</h4>
-        <Row>
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="First Name"
-              s={12}
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleFirstChange}
-            />
-            <div>{this.state.firstNameError}</div>
-          </Col>
-      
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="Last Name"
-              s={12}
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleLastChange}
-            />
-            <div>{this.state.lastNameError}</div>
-          </Col>
-        </Row>
+      <div>
+        <Side />
+        <div className="signup-div">
+          <h4 className="center-align">Sign Up</h4>
+          <Row>
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="First Name"
+                s={12}
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleFirstChange}
+              />
+              <div>{this.state.firstNameError}</div>
+            </Col>
+        
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="Last Name"
+                s={12}
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleLastChange}
+              />
+              <div>{this.state.lastNameError}</div>
+            </Col>
+          </Row>
 
-        <Row> 
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="Email"
-              s={12}
-              name="email"
-              value={this.state.email}
-              onChange={this.handleEmailChange}
-            />
-            <div>{this.state.emailError}</div>
-          </Col>
-          
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="Username"
-              s={12}
-              name="username"
-              value={this.state.username}
-              onChange={this.handleUserChange}
-            />
-            <div>{this.state.usernameError}</div>
-          </Col>
-        </Row>
+          <Row> 
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="Email"
+                s={12}
+                name="email"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+              />
+              <div>{this.state.emailError}</div>
+            </Col>
+            
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="Username"
+                s={12}
+                name="username"
+                value={this.state.username}
+                onChange={this.handleUserChange}
+              />
+              <div>{this.state.usernameError}</div>
+            </Col>
+          </Row>
 
-        <Row> 
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="Password"
-              s={12}
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handlePassChange}
-            />
-            <div>{this.state.passwordError}</div>
-          </Col>
+          <Row> 
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="Password"
+                s={12}
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handlePassChange}
+              />
+              <div>{this.state.passwordError}</div>
+            </Col>
 
-          <Col s={12} m={12} l={6} >
-            <Input
-              label="Confirm Password"
-              s={12}
-              type="password"
-              name="confirm"
-              value={this.state.confirm}
-              onChange={this.handleConfirmChange}
-            />
-            <div>{this.state.confirmError}</div>
-          </Col>
-        </Row>
+            <Col s={12} m={12} l={6} >
+              <Input
+                label="Confirm Password"
+                s={12}
+                type="password"
+                name="confirm"
+                value={this.state.confirm}
+                onChange={this.handleConfirmChange}
+              />
+              <div>{this.state.confirmError}</div>
+            </Col>
+          </Row>
 
-        <Row> 
-          <Col s={12}>
-            <div className="msg-div">
-              {this.state.preloader ? (
-                <ProgressBar />
-              ) : (
-                this.state.signedUp ? (
-                  <Redirect to={`/users/${this.state.username}`} />
+          <Row> 
+            <Col s={12}>
+              <div className="msg-div">
+                {this.state.preloader ? (
+                  <ProgressBar />
                 ) : (
-                  this.state.registerError ? (
-                    <span className="err-msg">{this.state.errorMsg}</span>
+                  this.state.signedUp ? (
+                    <Redirect to={`/users/${this.state.username}`} />
                   ) : (
-                    <span className="err-msg">Please fill out correctly</span>
+                    this.state.registerError ? (
+                      <span className="err-msg">{this.state.errorMsg}</span>
+                    ) : (
+                      <span className="err-msg">Please fill out correctly</span>
+                    )
                   )
-                )
-              )}
-            </div>
-          </Col>
-        </Row>
+                )}
+              </div>
+            </Col>
+          </Row>
 
-        <Row>
-          <Col s={12}>
-            <Button
-              disabled={!this.state.firstName || !this.state.lastName ||
-                        !this.state.email || !this.state.username ||
-                        !this.state.password || !this.state.confirm}
-              onClick={this.handleSubmit}
-              className="btn-form"
-            >
-              Create
-            </Button>
-          </Col>
-        </Row>
+          <Row>
+            <Col s={12}>
+              <Button
+                disabled={!this.state.firstName || !this.state.lastName ||
+                          !this.state.email || !this.state.username ||
+                          !this.state.password || !this.state.confirm}
+                onClick={this.handleSubmit}
+                className="btn-form"
+              >
+                Create
+              </Button>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

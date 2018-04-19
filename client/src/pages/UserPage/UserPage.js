@@ -1,4 +1,5 @@
 import React from 'react';
+import { SideActive } from '../../components/SideNav';
 import API from '../../utils/API';
 
 class UserPage extends React.Component {
@@ -23,6 +24,7 @@ class UserPage extends React.Component {
 	render() {
 		return (
       <div>
+        <SideActive />
         <h2>Welcome {this.state.data.firstName}</h2>
       </div>
 		);
