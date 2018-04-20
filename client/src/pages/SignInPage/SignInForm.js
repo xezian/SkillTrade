@@ -10,7 +10,7 @@ class SignInForm extends React.Component {
     username: '',
     password: '',
     link: '',
-    loggedIn: false,
+    signedIn: false,
     preloader: false,
     message: 'Enter your username and password',
     systemError: false,
@@ -38,7 +38,7 @@ class SignInForm extends React.Component {
             });
           } else {
             this.setState({
-              loggedIn: true,
+              signedIn: true,
               preloader: false,
               systemError: false,
               message: '',
@@ -91,7 +91,7 @@ class SignInForm extends React.Component {
                 {this.state.preloader ? (
                   <ProgressBar />
                 ) : (
-                  this.state.loggedIn ? (
+                  this.state.signedIn ? (
                     <Redirect to={`/users/${this.state.username}`} />
                   ) : (
                     <span>{this.state.message}</span>
