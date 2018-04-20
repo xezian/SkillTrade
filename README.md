@@ -8,7 +8,7 @@
 
 ### Link to deployed version:
 
-[DEPLOYED VERSION] ()
+[DEPLOYED VERSION](https://serene-oasis-24845.herokuapp.com/)
 
 ### Technologies used:
 
