@@ -32,6 +32,7 @@ module.exports = {
                   firstName: req.body.firstName,
                   lastName: req.body.lastName,
                   email: req.body.email,
+                  img: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg',
                   hash: hashWord,
                   salt: salt,
                 };
