@@ -37,6 +37,7 @@ class UserPage extends React.Component {
           selectedImage: null,
         });
         console.log(this.state.selectedImage);
+        console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -55,7 +56,7 @@ class UserPage extends React.Component {
               <Col s={4} style={{ height: 250, padding: 5 }}>
                 <img
                   src="https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg"
-                  className="profile-img"
+                  className="profile-img" alt="profile"/>
                 />
               </Col>
               <Col s={8} style={{backgroundColor: 'orange', height: 250}}>Posted Needs</Col>
