@@ -42,6 +42,7 @@ class UserPage extends React.Component {
           selectedImage: null,
         });
         console.log(this.state.selectedImage);
+        console.log(res);
       })
       .catch(err => {
         console.log(err);
