@@ -1,14 +1,16 @@
-.container {
-	margin-top: 30px;
-}
-
 .profile-img {
 	width: 200px;
 	height: 240px;
+	box-shadow: 0 0 5px #000;
 }
 
-.userpage-form {
-	margin-top: 20px;
+.profile-info p {
+	line-height: 100%;
+}
+
+.userpage {
+	margin: 30px auto;
+	width: 90%;
 }
 
 .userpage-btn {
@@ -23,4 +25,19 @@
 
 .userpage-btn:visited {
 	background-color: #ef8c2e;
+}
+
+.upload-btn {
+	width: 100%;
+}
+
+.form-title {
+	color: #26a69a;
+	text-align: center;
+	margin: 30px;
+}
+
+.userpage-form {
+	box-shadow: 0 0 3px #000;
+	padding: 0 20px 50px 20px;
 }

@@ -4,7 +4,7 @@
 }
 
 .logo {
-	height: 175px;
+	height: 150px;
 }
 
 .logo-brand {
@@ -67,10 +67,6 @@
   .clear {
   	clear: both;
   }
-
-  .logo {
-		height: 150px;
-	}
 }
 
 @media screen and (max-width: 850px) {
@@ -93,7 +89,7 @@
 	}
 
 	.logo {
-		display: none;
+		height: 100px;
 	}
 
 	.logo-brand {
