@@ -3,6 +3,7 @@ import { Row, Col, Input, Button } from 'react-materialize';
 import { SideActive } from '../../components/SideNav';
 import API from '../../utils/API';
 import './UserPage.css';
+import noImage from '../../img/no-image.png';
 
 class UserPage extends React.Component {
 	state = {
@@ -54,7 +55,8 @@ class UserPage extends React.Component {
             <Row>
               <Col s={4} style={{ height: 250, padding: 5 }}>
                 <img
-                  src="https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg"
+                  src={noImage}
+                  alt="no image available"
                   className="profile-img"
                 />
               </Col>
