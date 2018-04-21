@@ -43,7 +43,7 @@ class SignInForm extends React.Component {
               systemError: false,
               message: '',
             });
-            this.props.onSignIn(this.state.signedIn);
+            this.props.onSignIn(this.state.signedIn, res.data.username);
           }
         })
         .catch(err => {
@@ -52,7 +52,7 @@ class SignInForm extends React.Component {
             systemError: true,
             message: 'Something went wrong, try again later',
           });
-          this.props.onSignIn(this.state.signedIn);
+          this.props.onSignsIn(this.state.signedIn);
           console.log(err);
         });
     }, 2000);

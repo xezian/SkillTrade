@@ -8,14 +8,14 @@ import SignInForm from './pages/SignInPage';
 import SignUpForm from './pages/SignUpPage';
 
 class App extends React.Component {
-  state = { signedIn: false }
+  state = { signedIn: false, userName: '' }
 
-  signedInHandler = trueOrFalse => {
+  signedInHandler = (trueOrFalse, username) => {
     this.setState({
       signedIn: trueOrFalse,
+      userName: username
     });
     console.log('test')
-    console.log(this.state.signedIn)
   }
 
   render() {
@@ -27,9 +27,9 @@ class App extends React.Component {
           <Route exact path="/signup" render={() => (<Banner signedIn={false} />)} />
           <Route path="/users/:username" render={() => (<Banner signedIn={true} />)} />
           <Switch>
-            <Route exact path="/" render={() => (<HomePage />)} />
-            <Route exact path="/signin" render={() => (<SignInForm onSignIn={this.signedInHandler} />)} />
-            <Route exact path="/signup" render={() => (<SignUpForm />)} />
+            <Route exact path="/" render={() => (this.state.userName ? (<Redirect to={`/users/${this.state.userName}`} />) : (<HomePage />))} />
+            <Route exact path="/signin" render={() => (this.state.userName ? (<Redirect to={`/users/${this.state.userName}`} />) : (<SignInForm onSignIn={this.signedInHandler} />))} />
+            <Route exact path="/signup" render={() => (this.state.userName ? (<Redirect to={`/users/${this.state.userName}`} />) : (<SignUpForm />))} />
             <Route path="/users/:username" render={({ match }) => (
               this.state.signedIn ? (<UserPage username={match.params.username} />) : (<Redirect to='/' />)
             )} />
