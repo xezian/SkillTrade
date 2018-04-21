@@ -85,9 +85,17 @@ class UserPage extends React.Component {
     }) 
   }
 
+  clearForm(event){
+    event.preventDefault()
+    this.setState({
+          description: '',
+          title: '',
+
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this)
     const postData = {}
     console.log(this.state.id)
     postData.title = this.state.title
@@ -98,14 +106,9 @@ class UserPage extends React.Component {
     postData.type = this.state.type
 
     API.create(postData)
-      .then(
-      this.setState({
-      type: null,
-      category: null,
-      description: null,
-      title: null,
-      })
-    )
+    
+    this.clearForm(event)
+    console.log(this.state)
   }
 
 	render() {
