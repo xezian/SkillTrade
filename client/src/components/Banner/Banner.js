@@ -7,8 +7,8 @@ const Banner = props => (
   <Row id="banner">
     <div className="banner-div">
       <Col s={1} m={1} l={1} />
-      <Col s={11} m={7} l={8} />
-      <Col m={4} l={3}>
+      <Col s={11} m={6} l={7} />
+      <Col m={5} l={4}>
         <ul className="navbar">
           {!props.signedIn ? (
             <div>

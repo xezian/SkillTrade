@@ -1,6 +1,6 @@
 #banner {
 	padding: 10px;
-	background-color: #fff;
+	background-color: #f4b071;
 	height: 100px;
 	box-shadow: 0 0 10px #777;
 }
@@ -17,16 +17,18 @@
 	float:right;
 }
 
-.show {
-	display: inline-block;
+.navbar li>a {
+	color: #fff;
+	padding: 10px;
 }
 
-.hide {
-	display: none;
+.navbar li>a:hover {
+	text-shadow: 0 0 5px #fff;
+	border-bottom: 3px solid #ef8c2e;
 }
 
 @media screen and (max-width: 750px) {
-	.navbar>li {
+	.navbar li {
 		display: none;
 	}
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Input, Button } from 'react-materialize';
+import { Row, Col, Input, Button, Icon } from 'react-materialize';
 import { SideActive } from '../../components/SideNav';
 import API from '../../utils/API';
 import './UserPage.css';
@@ -91,42 +91,53 @@ class UserPage extends React.Component {
 
 	render() {
 		return (
-      <div className="container">
+      <div className="userpage">
         <SideActive 
           data={this.state.data}
         />
         <Row>
-          <Col s={7}>
+          <Col m={12} l={7}>
             <Row>
-              <Col s={4} style={{ height: 250, padding: 5 }}>
+              <Col s={4} style={{ height: 260, padding: 10}}>
                 <img
                   src={noImage}
-                  alt="no image available"
+                  alt="not available"
                   className="profile-img"
                 />
               </Col>
-              <Col s={8} style={{backgroundColor: 'orange', height: 250}}>Posted Needs</Col>
+              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Needs</Col>
             </Row>
             <Row>
-              <Col s={4} style={{ height: 250, padding: 5}}>
+              <Col s={4} className="profile-info" style={{ height: 260, padding: 10 }}>
                 <p><strong>{this.state.data.firstName} {this.state.data.lastName}</strong></p>
-                <p>{this.state.data.email}</p>
+                <p><em>{this.state.data.email}</em></p>
                 <p>Some dummy text blah blah blah blah blah</p>
-                <input type="file" onChange={this.fileSelectedHandler} />
-                <button onClick={this.fileUploadHandler}>Upload</button> 
+                <form action="#">
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <span><Icon>image</Icon></span>
+                      <input type="file" onChange={this.fileSelectedHandler} />
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text" />
+                    </div>
+                  </div>
+                </form>
+                <Button className="upload-btn" onClick={this.fileUploadHandler}>Upload</Button> 
               </Col>
-              <Col s={8} style={{backgroundColor: 'green', height: 250}}>Posted Skills</Col>
+              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Skills</Col>
             </Row>
           </Col>
-          <Col s={5}>
+          <Col m={12} l={5}>
+            <div className="userpage-form">
             <Row>
-              <Col s={12} style={{ height: 500, paddingLeft: 30 }}>
-                <h5 style={{ padding: 5, borderBottom: '1px solid #000' }}>Submit your skills or needs</h5>
-                <Row className="userpage-form">
+              <Col s={12}>
+                <h5 className="form-title">Submit your skills or needs</h5>
+                <Row>
                   <Input name='group1' type='radio' value='Skill' label='Skill' onChange={this.handleTypeChange} />
                   <Input name='group1' type='radio' value='Need' label='Need' onChange={this.handleTypeChange} />
                 </Row>
-                <Row className="userpage-form">
+                <Row>
                   <Input
                     s={12}
                     type="select"
@@ -134,21 +145,21 @@ class UserPage extends React.Component {
                     value={this.state.category}
                     onChange={this.handleOptionChange}
                   >
-                      <option value="Landscaping">Landscaping</option>
-                      <option value="Home Repair">Home Repair</option>
-                      <option value="Automotive">Automotive</option>
-                      <option value="Computer and Technology">Computer and Technology</option>
-                      <option value="Pet Care">Pet Care</option>
-                      <option value="Accounting">Accounting</option>
-                      <option value="Legal">Legal</option>
-                      <option value="Health and Wellness">Health </option>
-                      <option value="Bicycle Repair">Bicycle </option>
-                      <option value="Miscellaneous">Miscellaneous</option>
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Home Repair">Home Repair</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Computer and Technology">Computer and Technology</option>
+                    <option value="Pet Care">Pet Care</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Health and Wellness">Health </option>
+                    <option value="Bicycle Repair">Bicycle </option>
+                    <option value="Miscellaneous">Miscellaneous</option>
                   </Input>
                   <Input
                     s={12}
                     label="Title"
-                    type="textarea"
+                    type="text"
                     value={this.state.title}
                     onChange={this.handleTitleChange.bind(this)}
                   />
@@ -165,6 +176,7 @@ class UserPage extends React.Component {
                 </Row>
               </Col>
             </Row>
+            </div>
           </Col>
         </Row>
       </div>

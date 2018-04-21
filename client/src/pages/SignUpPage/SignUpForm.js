@@ -169,9 +169,9 @@ class SignUpForm extends React.Component {
       <div>
         <Side />
         <div className="signup-div">
-          <h4 className="center-align">Sign Up</h4>
+          <h4 className="center-align" style={{ color: '#26a69a' }}>Sign Up</h4>
           <Row>
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="First Name"
                 s={12}
@@ -182,7 +182,7 @@ class SignUpForm extends React.Component {
               <div>{this.state.firstNameError}</div>
             </Col>
         
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="Last Name"
                 s={12}
@@ -195,7 +195,7 @@ class SignUpForm extends React.Component {
           </Row>
 
           <Row> 
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="Email"
                 s={12}
@@ -206,7 +206,7 @@ class SignUpForm extends React.Component {
               <div>{this.state.emailError}</div>
             </Col>
             
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="Username"
                 s={12}
@@ -219,7 +219,7 @@ class SignUpForm extends React.Component {
           </Row>
 
           <Row> 
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="Password"
                 s={12}
@@ -231,7 +231,7 @@ class SignUpForm extends React.Component {
               <div>{this.state.passwordError}</div>
             </Col>
 
-            <Col s={12} m={12} l={6} >
+            <Col s={12} m={6} l={6} >
               <Input
                 label="Confirm Password"
                 s={12}
@@ -265,13 +265,13 @@ class SignUpForm extends React.Component {
           </Row>
 
           <Row>
-            <Col s={12}>
+            <Col s={12} className="center-align">
               <Button
                 disabled={!this.state.firstName || !this.state.lastName ||
                           !this.state.email || !this.state.username ||
                           !this.state.password || !this.state.confirm}
                 onClick={this.handleSubmit}
-                className="btn-form"
+                style={{ width: '50%' }}
               >
                 Create
               </Button>
