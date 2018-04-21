@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NoMatch from './pages/NoMatch';
 import Banner from './components/Banner';
 import HomePage from './pages/HomePage';
@@ -12,8 +12,10 @@ class App extends React.Component {
 
   signedInHandler = trueOrFalse => {
     this.setState({
-      state: trueOrFalse,
+      signedIn: trueOrFalse,
     });
+    console.log('test')
+    console.log(this.state.signedIn)
   }
 
   render() {
@@ -29,11 +31,8 @@ class App extends React.Component {
             <Route exact path="/signin" render={() => (<SignInForm onSignIn={this.signedInHandler} />)} />
             <Route exact path="/signup" render={() => (<SignUpForm />)} />
             <Route path="/users/:username" render={({ match }) => (
-              {this.state.signedIn ? (
-                <UserPage username={match.params.username} />)} 
-              ) : (
-                <Redirect to={HomePage} />
-              )} />
+              this.state.signedIn ? (<UserPage username={match.params.username} />) : (<Redirect to='/' />)
+            )} />
             <Route render={() => (<NoMatch />)} />
           </Switch>
         </div>
