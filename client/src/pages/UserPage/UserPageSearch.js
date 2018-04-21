@@ -107,9 +107,15 @@ class HomePage extends React.Component {
                     <Card
                       header={<CardTitle reveal image={result.img} waves="light" />}
                       title={result.category}
-                      reveal={result.description}
+                      reveal={
+                        <div>
+                        <p>{result.description}</p>
+                        <Button waves='light' node='a' href={`mailto:${result.user.email}`}>Send Message</Button>
+                        </div>
+                      }
                     >
                       <p>{result.name}</p>
+                      <Button waves='light' node='a' href={`mailto:${result.user.email}`}>Send Message</Button>
                     </Card>
                   </div>
                 ))}
