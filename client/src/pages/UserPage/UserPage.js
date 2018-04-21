@@ -22,7 +22,7 @@ class UserPage extends React.Component {
         this.setState({
           data: res.data,
         });
-        console.log(this.state.data)
+        console.log(res.data)
       })
       .catch(err => {
         console.log(err);

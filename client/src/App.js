@@ -7,22 +7,39 @@ import UserPage from './pages/UserPage';
 import SignInForm from './pages/SignInPage';
 import SignUpForm from './pages/SignUpPage';
 
-const App = () => (
-  <Router>
-    <div>
-      <Route exact path="/" render={() => (<Banner signedIn={false} />)} />
-      <Route exact path="/signin" render={() => (<Banner signedIn={false} />)} />
-      <Route exact path="/signup" render={() => (<Banner signedIn={false} />)} />
-      <Route path="/users/:username" render={() => (<Banner signedIn={true} />)} />
-      <Switch>
-        <Route exact path="/" render={() => (<HomePage />)} />
-        <Route exact path="/signin" render={() => (<SignInForm />)} />
-        <Route exact path="/signup" render={() => (<SignUpForm />)} />
-        <Route path="/users/:username" render={({ match }) => (<UserPage username={match.params.username} />)} />
-        <Route render={() => (<NoMatch />)} />
-      </Switch>
-    </div>
-  </Router>
-);
+class App extends React.Component {
+  state = { signedIn: false }
+
+  signedInHandler = trueOrFalse => {
+    this.setState({
+      state: trueOrFalse,
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" render={() => (<Banner signedIn={false} />)} />
+          <Route exact path="/signin" render={() => (<Banner signedIn={false} />)} />
+          <Route exact path="/signup" render={() => (<Banner signedIn={false} />)} />
+          <Route path="/users/:username" render={() => (<Banner signedIn={true} />)} />
+          <Switch>
+            <Route exact path="/" render={() => (<HomePage />)} />
+            <Route exact path="/signin" render={() => (<SignInForm onSignIn={this.signedInHandler} />)} />
+            <Route exact path="/signup" render={() => (<SignUpForm />)} />
+            <Route path="/users/:username" render={({ match }) => (
+              {this.state.signedIn ? (
+                <UserPage username={match.params.username} />)} 
+              ) : (
+                <Redirect to={HomePage} />
+              )} />
+            <Route render={() => (<NoMatch />)} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+}  
 
 export default App;
