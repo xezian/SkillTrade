@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Input, Button, Icon } from 'react-materialize';
 import { SideActive } from '../../components/SideNav';
+import UserPageSearch from './UserPageSearch';
 import API from '../../utils/API';
 import './UserPage.css';
 import noImage from '../../img/no-image.png';
@@ -127,13 +128,17 @@ class UserPage extends React.Component {
                   className="profile-img"
                 />
               </Col>
-              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Needs
-      <Messages /></Col>
+
+              <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
+
             </Row>
             <Row>
               <Col s={4} className="profile-info" style={{ height: 260, padding: 10 }}>
                 <p><strong>{this.state.data.firstName} {this.state.data.lastName}</strong></p>
                 <p><em>{this.state.data.email}</em></p>
+
+                <p></p>
+
                 <form action="#">
                   <div class="file-field input-field">
                     <div class="btn">
@@ -147,8 +152,9 @@ class UserPage extends React.Component {
                 </form>
                 <Button className="upload-btn" onClick={this.fileUploadHandler}>Upload</Button> 
               </Col>
-              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Skills 
-      <Messages /> </Col>
+
+              <Col s={8} style={{ height: 260, padding: 20 }}></Col>
+
             </Row>
           </Col>
           <Col m={12} l={5}>
