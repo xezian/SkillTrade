@@ -38,7 +38,11 @@ class UserPage extends React.Component {
   }
 
   fileUploadHandler = () => {
-    API.uploadImage(this.state.selectedImage)
+    const form = new FormData();
+
+    form.append("userFile", this.state.selectedImage);
+
+    API.uploadImage(form)
       .then(res => {
         this.setState({
           selectedImage: null,

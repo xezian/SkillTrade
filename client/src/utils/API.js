@@ -23,7 +23,11 @@ export default {
   getUserData: username => axios.get(`/api/users/${username}`),
 
   // Upload an image
-  uploadImage: img => axios.post('/api/upload', img), 
+  uploadImage: img => axios.post('/api/upload', img, {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }
+  }), 
 
   // Add a need or skill
   create: item => {
