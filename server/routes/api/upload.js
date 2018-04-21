@@ -26,7 +26,7 @@ const upload = multer({
 // Matches with "/api/upload"
 router
   .post('/', upload.any(), (req, res) => {
-    console.log(req);
+    console.log(req.files);
   });
 
 module.exports = router;
