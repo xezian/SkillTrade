@@ -7,6 +7,7 @@ module.exports = {
     console.log('skills findAll!');
     db.Skill
       .find({})
+      .join()
       .then(instances => res.json(instances))
       .catch(err => res.status(422).json(err));
   },
@@ -14,6 +15,7 @@ module.exports = {
     console.log('skills findByCategory!');
     db.Skill
       .find({ category: req.params.category })
+      .join()
       .then(instance => res.json(instance))
       .catch(err => res.status(422).json(err));
   },
