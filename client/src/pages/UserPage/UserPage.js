@@ -87,9 +87,17 @@ class UserPage extends React.Component {
     }) 
   }
 
+  clearForm(event){
+    event.preventDefault()
+    this.setState({
+          description: '',
+          title: '',
+
+    })
+  }
+
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this)
     const postData = {}
     console.log(this.state.id)
     postData.title = this.state.title
@@ -100,14 +108,9 @@ class UserPage extends React.Component {
     postData.type = this.state.type
 
     API.create(postData)
-      .then(
-      this.setState({
-      type: null,
-      category: null,
-      description: null,
-      title: null,
-      })
-    )
+    
+    this.clearForm(event)
+    console.log(this.state)
   }
 
 	render() {
@@ -126,13 +129,19 @@ class UserPage extends React.Component {
                   className="profile-img"
                 />
               </Col>
+
               <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
+
+              <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
+
             </Row>
             <Row>
               <Col s={4} className="profile-info" style={{ height: 260, padding: 10 }}>
                 <p><strong>{this.state.data.firstName} {this.state.data.lastName}</strong></p>
                 <p><em>{this.state.data.email}</em></p>
+
                 <p></p>
+
                 <form action="#">
                   <div class="file-field input-field">
                     <div class="btn">
@@ -146,8 +155,9 @@ class UserPage extends React.Component {
                 </form>
                 <Button className="upload-btn" onClick={this.fileUploadHandler}>Upload</Button> 
               </Col>
-              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Skills 
-      <Messages /> </Col>
+
+              <Col s={8} style={{ height: 260, padding: 20 }}></Col>
+
             </Row>
           </Col>
           <Col m={12} l={5}>
