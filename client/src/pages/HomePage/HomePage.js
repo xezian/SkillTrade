@@ -17,12 +17,19 @@ class HomePage extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
   handleOptionChange(event) {
     this.setState({
       option: event.target.value,
     });
+  }
+
+  handleCategoryChange(event) {
+    this.setState({
+      category: event.target.value,
+    })
   }
 
   handleInputChange(event) {
@@ -69,12 +76,24 @@ class HomePage extends React.Component {
           <Col s={1} m={2} />
           <Col s={1} m={2} className="clear" />
           <Col s={8} m={7} l={5} className="main-input" >
-            <Input
-              s={12}
-              placeholder="Search skill/need categories..."
-              value={this.state.category}
-              onChange={this.handleInputChange}
-            />
+                  <Input
+                    s={12}
+                    type="select"
+                    label="Choose a category"
+                    value={this.state.category}
+                    onChange={this.handleCategoryChange}
+                  >
+                    <option value="Landscaping">Landscaping</option>
+                    <option value="Home Repair">Home Repair</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Computer and Technology">Computer and Technology</option>
+                    <option value="Pet Care">Pet Care</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Health and Wellness">Health </option>
+                    <option value="Bicycle Repair">Bicycle </option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                  </Input>
           </Col>
           <Col s={2} m={1} l={1}>
             <Button
