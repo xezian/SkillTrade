@@ -35,7 +35,7 @@ Promise.all([...userPromise]).then(() => {
   const needSeeds = [
     {
       title: 'Need Garden Planted',
-      category: 'Yard & Garden',
+      category: 'Landscaping',
       description: 'Hello my friends, I need a nice garden to be planted along my walkway.',
       img: 'http://www.gropat.com/images/151653205668351.jpeg',
       user: userId[0],
@@ -49,7 +49,7 @@ Promise.all([...userPromise]).then(() => {
     },
     {
       title: 'Install Linux on my Windows Machine',
-      category: 'Computer',
+      category: 'Computer and Technology',
       description: 'For some reason I can\'t figure this out on my own!',
       img: 'https://s3.amazonaws.com/aspph-wp-production/app/uploads/2017/03/Ans-.jpg',
       user: userId[0],
@@ -63,14 +63,14 @@ Promise.all([...userPromise]).then(() => {
     },
     {
       title: 'fix my clogged up drain',
-      category: 'Home Maintenance',
+      category: 'Home Repair',
       description: 'Something must have gotten stuck in there.',
       img: 'http://www.binarytradingforum.com/core/image.php?userid=27&dateline=1355305878',
       user: userId[0],
     },
     {
       title: 'Build me a fullstack web application',
-      category: 'Computer',
+      category: 'Computer and Technology',
       description: 'It doesn\'t matter to me what it does. I only care how full of a stack it is.',
       img: 'https://cap.stanford.edu/profiles/viewImage?profileId=65672&type=square&ts=1509500008416',
       user: userId[0],
@@ -79,28 +79,28 @@ Promise.all([...userPromise]).then(() => {
   const skillSeeds = [
     {
       title: 'Drive you around',
-      category: 'Transportation',
+      category: 'Miscellaneous',
       description: 'My car is reliable and clean, I have a driver\'s license, I probably also drive for Lyft and Uber.',
       img: 'https://cap.stanford.edu/profiles/viewImage?profileId=4024&type=square&ts=1509566427223',
       user: userId[1],
     },
     {
       title: 'Available to film your movie',
-      category: 'Audio/Visual',
+      category: 'Computer and Technology',
       description: 'I have great skill with camera and editing.',
       img: 'https://corporate.ford.com/content/dam/corporate/en/careers/employee-profiles/molli-andor/380x380Profile-Molli.jpg',
       user: userId[1],
     },
     {
       title: 'Install Linux on your Windows Machine',
-      category: 'Computer',
+      category: 'Computer and Technology',
       description: 'I\'ll get Linux running for you, so you can run from Windows.',
       img: 'http://glia.ca/scm/2013/ge1127_b/wp-content/uploads/2013/10/594partner-profile-pic-An.jpg',
       user: userId[1],
     },
     {
       title: 'Cook Your Meal',
-      category: 'Food',
+      category: 'Health',
       description: 'I\'ll bring ingredients into your kitchen and combine them to create you a delicious meal.',
       img: 'https://narrow.jp/img/upload/talent/W15-0332-171115.jpg',
       user: userId[1],
@@ -114,7 +114,7 @@ Promise.all([...userPromise]).then(() => {
     },
     {
       title: 'Talk Things Over',
-      category: 'Companionship',
+      category: 'Miscellaneous',
       description: 'I can listen and discuss your feelings about the things in your life.',
       img: 'https://dieteticallyspeaking.com/wp-content/uploads/2017/01/profile-square.jpg',
       user: userId[1],
