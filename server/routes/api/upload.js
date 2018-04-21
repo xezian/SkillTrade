@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const db = require('../../models');
 // upload handling
 const aws = require('aws-sdk');
 const multer = require('multer');
@@ -27,7 +27,18 @@ const upload = multer({
 // Matches with "/api/upload"
 router
   .post('/', upload.any(), (req, res) => {
-    res.json(req.files[0].location);
+    console.log(req.body.userID);
+    const url = req.files[0].location;
+    console.log(url);
+    db.User.findById(req.body.userID).then((user) => {
+      user.img = url;
+      return user.save();
+    }).then(() => {
+      res.json(url);
+    }).catch((err) => {
+      console.log(err);
+      res.status(422).json(err);
+    });
   });
 
 module.exports = router;
