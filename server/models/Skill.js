@@ -1,7 +1,7 @@
 const ko = require('nekodb');
 
 const Skill = ko.Model('Skill', {
-  name: ko.String,
+  title: ko.String,
   category: ko.String,
   description: ko.String,
   img: ko.String,
@@ -10,7 +10,7 @@ const Skill = ko.Model('Skill', {
     user: {
       unique: false,
     },
-    name: {
+    title: {
       unique: false,
     },
     category: {

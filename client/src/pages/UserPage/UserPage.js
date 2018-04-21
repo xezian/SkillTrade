@@ -13,6 +13,7 @@ class UserPage extends React.Component {
     category: null,
     description: null,
     title: null,
+    id: null
 	}
 
 	componentDidMount = () => {
@@ -20,6 +21,7 @@ class UserPage extends React.Component {
       .then(res => {
         this.setState({
           data: res.data,
+          id: res.data._id
         });
         console.log(this.state.data)
       })
@@ -80,10 +82,16 @@ class UserPage extends React.Component {
     event.preventDefault()
     console.log(this)
     const postData = {}
-    postData.category = this.state.category
-    postData.type = this.state.type
-    postData.description = this.state.description
+    console.log(this.state.id)
     postData.title = this.state.title
+    postData.category = this.state.category
+    postData.description = this.state.description
+    postData.img = null
+    postData.user = this.state.id
+    postData.type = this.state.type
+
+    API.create(postData)
+    
     console.log(postData)
   }
 
