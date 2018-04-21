@@ -19,10 +19,13 @@ module.exports = {
   },
   create: (req, res) => {
     console.log('skills create!');
+    console.log(req);
     db.Skill
       .create(req.body).save()
       .then(instance => res.json(instance))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err)
+        res.status(422).json(err)});
   },
   update: (req, res) => {
     console.log('skills update!');
@@ -33,7 +36,7 @@ module.exports = {
         return newInstance.save();
       })
       .catch(err => res.status(422).json(err));
-  },
+   },
   remove: (req, res) => {
     console.log('skills remove!');
     db.Skill
