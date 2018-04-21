@@ -35,6 +35,7 @@ class SignInForm extends React.Component {
               systemError: true,
               message: 'Invalid username or password',
             });
+            this.props.onSignedIn(this.state.signedIn);
           } else {
             this.setState({
               signedIn: true,
@@ -42,6 +43,7 @@ class SignInForm extends React.Component {
               systemError: false,
               message: '',
             });
+            this.props.onSignedIn(this.state.signedIn);
           }
         })
         .catch(err => {
@@ -50,6 +52,7 @@ class SignInForm extends React.Component {
             systemError: true,
             message: 'Something went wrong, try again later',
           });
+          this.props.onSignedIn(this.state.signedIn);
           console.log(err);
         });
     }, 2000);
