@@ -12,22 +12,22 @@ aws.config.update({
   region: 'us-west-1',
 });
 
-let s3 = new aws.S3()
+const s3 = new aws.S3();
 
 const upload = multer({
   storage: multers3({
-    s3: s3,
+    s3,
     bucket: process.env.S3_BUCKET,
     acl: 'public-read',
-    key: function(req, file, cb) {
+    key(req, file, cb) {
       cb(null, Date.now() + path.extname(file.originalname));
-    }
-  })
+    },
+  }),
 });
 // Matches with "/api/upload"
 router
   .post('/', upload.any(), (req, res) => {
-    console.log(req.files);
+    res.json(req.files[0].location);
   });
 
 module.exports = router;
