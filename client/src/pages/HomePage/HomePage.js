@@ -122,11 +122,11 @@ class HomePage extends React.Component {
                       reveal={
                         <div>
                         <p>{result.description}</p>
-                        <Button waves='light' node='a' href={result.user.email}>Send Message</Button>
+                        <Button waves='light' node='a' href={`mailto:${result.user.email}`}>Send Message</Button>
                         </div>
                       }
                     >
-                      <Button waves='light' node='a' href={result.user.email}>Send Message</Button>
+                      <Button waves='light' node='a' href={`mailto: ${result.user.email}`}>Send Message</Button>
                     </Card>
                   </div>
                 ))}
