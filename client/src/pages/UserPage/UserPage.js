@@ -5,6 +5,7 @@ import UserPageSearch from './UserPageSearch';
 import API from '../../utils/API';
 import './UserPage.css';
 import noImage from '../../img/no-image.png';
+import Messages from '../Messages/Messages.js';
 
 class UserPage extends React.Component {
 	state = {
@@ -99,8 +100,14 @@ class UserPage extends React.Component {
     postData.type = this.state.type
 
     API.create(postData)
-    
-    console.log(postData)
+      .then(
+      this.setState({
+      type: null,
+      category: null,
+      description: null,
+      title: null,
+      })
+    )
   }
 
 	render() {
@@ -139,7 +146,8 @@ class UserPage extends React.Component {
                 </form>
                 <Button className="upload-btn" onClick={this.fileUploadHandler}>Upload</Button> 
               </Col>
-              <Col s={8} style={{ height: 260, padding: 20 }}></Col>
+              <Col s={8} style={{ height: 260, padding: 20 }}>Posted Skills 
+      <Messages /> </Col>
             </Row>
           </Col>
           <Col m={12} l={5}>
