@@ -12,6 +12,7 @@ class UserPage extends React.Component {
 		user: this.props.username,
 		data: [],
     selectedImage: null,
+    imgStatus: false,
     type: null,
     category: null,
     description: null,
@@ -47,10 +48,10 @@ class UserPage extends React.Component {
     API.uploadImage(form)
       .then(res => {
         this.setState({
-          selectedImage: null,
+          selectedImage: res.data,
+          imgStatus: true,
         });
         console.log(this.state.selectedImage);
-        console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -123,11 +124,13 @@ class UserPage extends React.Component {
             <Row>
               <Col s={4} style={{ height: 260, padding: 10}}>
                 <img
-                  src={noImage}
+                  src={this.state.imgStatus ? this.state.selectedImage : noImage}
                   alt="not available"
                   className="profile-img"
                 />
               </Col>
+
+              <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
 
               <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
 
