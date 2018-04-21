@@ -133,8 +133,6 @@ class UserPage extends React.Component {
 
               <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
 
-              <Col s={8} style={{ height: 260, padding: 20 }}><UserPageSearch /></Col>
-
             </Row>
             <Row>
               <Col s={4} className="profile-info" style={{ height: 260, padding: 10 }}>
