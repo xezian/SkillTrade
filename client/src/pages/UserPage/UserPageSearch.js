@@ -1,9 +1,6 @@
 import React from 'react';
 import { Row, Col, Input, Button, Card, CardTitle } from 'react-materialize';
-import { Side } from '../../components/SideNav';
 import API from '../../utils/API';
-import './HomePage.css';
-import logo from '../../img/logo.png';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -55,13 +52,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Side />
-        <div className="logo-div">
-          <img src={logo} alt="logo" className="logo" />
-        </div>
         <Row>
-          <Col s={1} m={2} l={2} />
-          <Col s={10} m={8} l={2} className="main-input" >
+          <Col s={2}className="main-input" >
             <Input
               s={12}
               type="select"
@@ -73,9 +65,7 @@ class HomePage extends React.Component {
               <option value="2">I need ...</option>
             </Input>
           </Col>
-          <Col s={1} m={2} />
-          <Col s={1} m={2} className="clear" />
-          <Col s={8} m={7} l={5} className="main-input" >
+          <Col s={8} className="main-input" >
             <Input
               s={12}
               type="select"
@@ -95,7 +85,7 @@ class HomePage extends React.Component {
               <option value="Miscellaneous">Miscellaneous</option>
             </Input>
           </Col>
-          <Col s={2} m={1} l={1}>
+          <Col s={2}>
             <Button
               floating
               large
@@ -106,27 +96,20 @@ class HomePage extends React.Component {
               disabled={!this.state.category}
             />
           </Col>
-          <Col s={1} m={2} l={2} />
         </Row>
         <Row>
-          <Col s={1} />
-          <Col s={10}>
+          <Col s={12}>
             {this.state.searchResults.length > 0 ? (
               <div>
-                <h4 className="center-align">Search Results</h4>
+                <h5 className="center-align">Search Results</h5>
                 {this.state.searchResults.map(result => (
-                  <div className="card-layout" key={result._id}>
+                  <div style={{ width: '70%', margin: 'auto' }} key={result._id}>
                     <Card
                       header={<CardTitle reveal image={result.img} waves="light" />}
                       title={result.category}
-                      reveal={
-                        <div>
-                        <p>{result.description}</p>
-                        <Button waves='light' node='a' href={result.user.email}>Send Message</Button>
-                        </div>
-                      }
+                      reveal={result.description}
                     >
-                      <Button waves='light' node='a' href={result.user.email}>Send Message</Button>
+                      <p>{result.name}</p>
                     </Card>
                   </div>
                 ))}
@@ -137,7 +120,6 @@ class HomePage extends React.Component {
               </p>
             )}
           </Col>
-          <Col s={1} />
         </Row>
       </div>
     );
