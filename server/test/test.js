@@ -2,13 +2,13 @@
 process.env.NODE_ENV = 'test';
 
 const ko = require('nekodb');
-const db = require('../server/models');
+const db = require('../models');
 
 
 // Require the dev-dependencies
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../server/bin/www');
+const server = require('../bin/www');
 
 const should = chai.should();
 

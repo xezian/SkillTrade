@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Row, Col, Input, Button, ProgressBar } from 'react-materialize';
+import { Row, Input, Button, ProgressBar } from 'react-materialize';
 import { Side } from '../../components/SideNav';
 import API from '../../utils/API';
 import './SignInForm.css';
@@ -9,8 +9,7 @@ class SignInForm extends React.Component {
   state = {
     username: '',
     password: '',
-    link: '',
-    loggedIn: false,
+    signedIn: false,
     preloader: false,
     message: 'Enter your username and password',
     systemError: false,
@@ -36,14 +35,15 @@ class SignInForm extends React.Component {
               systemError: true,
               message: 'Invalid username or password',
             });
+            this.props.onSignIn(this.state.signedIn);
           } else {
             this.setState({
-              loggedIn: true,
+              signedIn: true,
               preloader: false,
               systemError: false,
               message: '',
             });
-          console.log(this.state.link);
+            this.props.onSignIn(this.state.signedIn);
           }
         })
         .catch(err => {
@@ -52,6 +52,8 @@ class SignInForm extends React.Component {
             systemError: true,
             message: 'Something went wrong, try again later',
           });
+          this.props.onSignIn(this.state.signedIn);
+          console.log(err);
         });
     }, 2000);
   }
@@ -61,55 +63,47 @@ class SignInForm extends React.Component {
       <div>
         <Side />
         <div className="signin-div">
-          <h4 className="center-align">Sign In</h4>
+          <h4 className="center-align" style={{ color: '#26a69a' }}>Sign In</h4>
           <Row>
-            <Col s={12}>
-              <Input
-                label="Username"
-                s={12}
-                name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </Col>
-   
-            <Col s={12}>
-              <Input
-                label="Password"
-                s={12}
-                name="password"
-                type="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </Col>
+            <Input
+              label="Username"
+              s={12}
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+            <Input
+              label="Password"
+              s={12}
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
           </Row>
 
           <Row>
-            <Col s={12}>
-              <div className="msg-div">
-                {this.state.preloader ? (
-                  <ProgressBar />
+            <div className="msg-div">
+              {this.state.preloader ? (
+                <ProgressBar />
+              ) : (
+                this.state.signedIn ? (
+                  <Redirect to={`/users/${this.state.username}`} />
                 ) : (
-                  this.state.loggedIn ? (
-                    <Redirect to={`/users/${this.state.username}`} />
-                  ) : (
-                    <span>{this.state.message}</span>
-                  )
-                )}
-              </div>
-            </Col>
+                  <span>{this.state.message}</span>
+                )
+              )}
+            </div>
           </Row>
 
           <Row>
-            <Col s={12}>
-              <Button
-                disabled={!this.state.username || !this.state.password}
-                onClick={this.handleSubmit}
-              >
-                Log In
-              </Button>
-            </Col>
+            <Button
+              disabled={!this.state.username || !this.state.password}
+              onClick={this.handleSubmit}
+              style={{ width: '100%'}}
+            >
+              Log In
+            </Button>
           </Row>
         </div>
       </div>
